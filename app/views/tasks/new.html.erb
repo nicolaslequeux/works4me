@@ -1,0 +1,11 @@
+<%= simple_form_for @task do |f| %>
+    <%= f.input  :name, label: "What's the task?", error: "Name is mandatory, please specify one" %>
+    <%= f.input  :category %>
+    <%= f.input  :description, label: "Describe the task:" %>
+    <%= f.input  :address, label: "Put the address:" %>
+    <%= f.input  :price, hint: 'Insert a price.' %>
+
+    <%#= f.input :photo, label: "Time for some nice pics 😉" %>
+    <%#= f.input :photo_cache, as: :hidden %>
+    <%= f.button :submit, "Create the task", class: "btn btn-success" %>
+  <% end %>
