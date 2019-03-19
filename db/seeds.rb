@@ -33,7 +33,7 @@ test_user.save
 
 name_task = ["Cleaning", "Moving furnitures", "Driving", "Digging a hole", "Ironing"]
 category_task = ["Cleaning", "moving", "driving", "ironing", "sewing", "computering"]
-status_task = ["pending", "accepeted", "resolved", "expired", "unresolved"]
+status_task = ["pending", "accepeted", "refused", "resolved", "unresolved"]
 
 puts 'Creating Tasks...'
 10.times do
