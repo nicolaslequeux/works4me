@@ -3,4 +3,11 @@ class User < ApplicationRecord
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
+
+  has_many :reviews
+
+  has_many :owned_tasks, class_name: "Task", foreign_key: "owner_user_id"
+  has_many :assigned_tasks, class_name: "Task", foreign_key: "worker_user_id"
+
 end
+
