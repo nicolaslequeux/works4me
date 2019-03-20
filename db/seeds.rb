@@ -54,7 +54,7 @@ end
 
 
 puts "Creating Reviews..."
-5.times do
+20.times do
   new_review = Review.new(
     rating: rand(1..5),
     task_id: Task.all.sample.id,
