@@ -18,6 +18,7 @@ class ReviewsController < ApplicationController
     if @review.save
       redirect_to task_path(@review.task)
     else
+      flash[:alert] = "Oops! Something went wrong :("
       render :new
     end
   end
