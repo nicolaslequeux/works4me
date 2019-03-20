@@ -34,6 +34,7 @@ test_user.save
 name_task = ["Cleaning", "Moving furnitures", "Driving", "Digging a hole", "Ironing"]
 category_task = ["Cleaning", "moving", "driving", "ironing", "sewing", "computering"]
 status_task = ["pending", "accepeted", "refused", "resolved", "unresolved"]
+address_task = ["Rome", "Milan", "Paris", "Madrid", "Berlin", "London", "Brussels"]
 
 puts 'Creating Tasks...'
 10.times do
@@ -42,7 +43,7 @@ puts 'Creating Tasks...'
     category: category_task.sample,
     description: Faker::Lorem.paragraphs,
     price: Faker::Commerce.price,
-    address: Faker::Address.full_address,
+    address: address_task.sample,
     status: status_task.sample,
     picture: "http://lorempixel.com/400/400/",
     owner_user_id: User.all.sample.id,
