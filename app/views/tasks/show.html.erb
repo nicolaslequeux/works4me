@@ -1,0 +1,12 @@
+<h2><%= @task.name %></h2>
+<h4><%= @task.owner.first_name %></h4>
+<p><%= @task.category %></p>
+<p><%= @task.description %></p>
+<p><%= @task.address %></p>
+<p><%= @task.price %></p>
+<p><%= @task.status %></p>
+
+
+---------------------------------------------------
+
+<%= @task.owner.average_rating_received %>

@@ -1,0 +1,7 @@
+<% @tasks.each do |task| %>
+<p><%= task.name %></p>
+<p><%= task.price %></p>
+<p><%= task.status %></p>
+<p><%= task.owner.first_name %></p>
+
+<% end %>
