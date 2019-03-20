@@ -13,7 +13,7 @@
 <% if @payment.task.status == "pending"%>
   <%= link_to "Refresh", task_payment_path(@payment), class: "btn btn-warning" %>
 <% else %>
-  <%= link_to "Refresh", task_payment_path(@payment), class: "btn btn-warning" %>
+  <%= link_to "Refresh", root_path, class: "btn btn-warning" %>
 <% end %>
 
 
