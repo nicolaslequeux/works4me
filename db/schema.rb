@@ -10,16 +10,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+ActiveRecord::Schema.define(version: 2019_03_20_105335) do
 ActiveRecord::Schema.define(version: 2019_03_20_102450) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "payments", force: :cascade do |t|
-    t.integer "amount"
-    t.string "status"
-    t.bigint "task_id"
+    t.string "state"
+    t.integer "amount_cents", default: 0, null: false
+    t.string "amount_currency", default: "EUR", null: false
     t.jsonb "payload"
+    t.bigint "task_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["task_id"], name: "index_payments_on_task_id"
@@ -39,7 +41,6 @@ ActiveRecord::Schema.define(version: 2019_03_20_102450) do
     t.string "name"
     t.string "category"
     t.text "description"
-    t.integer "price"
     t.string "address"
     t.string "status"
     t.string "picture"
@@ -47,8 +48,12 @@ ActiveRecord::Schema.define(version: 2019_03_20_102450) do
     t.integer "worker_user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+
+    t.integer "price_cents", default: 0, null: false
+
     t.float "latitude"
     t.float "longitude"
+
     t.index ["owner_user_id"], name: "index_tasks_on_owner_user_id"
     t.index ["worker_user_id"], name: "index_tasks_on_worker_user_id"
   end
