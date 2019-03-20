@@ -31,6 +31,12 @@ class TasksController < ApplicationController
     redirect_to new_task_payment_path(@task)
   end
 
+  def update
+    @task = Task.find(params[:id])
+    @task.status = "accepted"
+    redirect_to tasks_path
+  end
+
   private
 
   def task_params

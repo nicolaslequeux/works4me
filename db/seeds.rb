@@ -44,7 +44,7 @@ puts 'Creating Tasks...'
     description: Faker::Lorem.paragraphs,
     price: Faker::Commerce.price,
     address: address_task.sample,
-    status: status_task.sample,
+    # status: status_task.sample,
     picture: "",
     owner_user_id: User.all.sample.id,
     worker_user_id: User.all.sample.id

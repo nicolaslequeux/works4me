@@ -1,4 +1,3 @@
-
 <h2><%= @task.name %></h2>
 
 <p>Owner: <%= @task.owner.first_name %></p>
@@ -8,24 +7,5 @@
 <p>Price: <%= @task.price %></p>
 <p>Status: <%= @task.status %></p>
 <p>Average rating for owner: <%= @task.owner.average_rating_received %></p>
-
-<div>
-  <%= cl_image_tag @task.picture, height: 200, width: 200, crop: :fill %>
-</div>
-<p>---------------------------------------------</p>
-<h4><%= @task.owner.first_name %></h4>
-<p><%= @task.category %></p>
-<p><%= @task.description %></p>
-<p><%= @task.address %></p>
-<p>Amount: <%= humanized_money_with_symbol(@task.price) %></p>
-<p><%= @task.status %></p>
-
-<%= form_tag payments_path do %>
-  <%= hidden_field_tag 'task_id', @task.id %>
-  <%= submit_tag 'Pay now', class: 'btn btn-primary' %>
-<% end %>
-
-
+<%= link_to "Accept the task", task_path(@task), method: :patch, class: "btn btn-success btn-lg" %>
 <br>
-
-<%= link_to "Back to index", tasks_path, class: "btn btn-warning" %>
