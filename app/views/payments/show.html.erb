@@ -1,7 +1,30 @@
-show.html.erb
 
+
+
+
+<h1>You are all set!</h1>
 
 <%= @payment.task.name %>
+<%= @payment.amount_cents %>
 
 
-<%= @payment.payload %>
+<h1>Waiting for someone to pick up your task</h1>
+
+<% if @payment.task.status == "pending"%>
+  <%= link_to "Refresh", task_payment_path(@payment), class: "btn btn-warning" %>
+<% else %>
+  <%= link_to "Refresh", task_payment_path(@payment), class: "btn btn-warning" %>
+<% end %>
+
+
+
+
+
+
+
+
+
+
+
+
+
