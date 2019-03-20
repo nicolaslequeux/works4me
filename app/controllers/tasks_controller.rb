@@ -16,7 +16,7 @@ class TasksController < ApplicationController
     @task.owner_user_id = current_user.id
     @task.save
 
-    redirect_to task_path(@task)
+    redirect_to new_task_payment_path(@task)
   end
 
   private

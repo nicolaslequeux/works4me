@@ -17,7 +17,6 @@ ActiveRecord::Schema.define(version: 2019_03_20_105335) do
 
   create_table "payments", force: :cascade do |t|
     t.string "state"
-    t.string "taks_sku"
     t.integer "amount_cents", default: 0, null: false
     t.string "amount_currency", default: "EUR", null: false
     t.jsonb "payload"
