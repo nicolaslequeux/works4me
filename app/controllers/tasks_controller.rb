@@ -3,10 +3,12 @@ class TasksController < ApplicationController
     @tasks = Task.all
     @tasks_mapped = Task.where.not(latitude: nil, longitude: nil)
 
-    @markers = @tasks.map do |flat|
+    @markers = @tasks.map do |task|
       {
-        lat: flat.latitude,
-        lng: flat.longitude
+        lat: task.latitude,
+        lng: task.longitude,
+        infoWindow: render_to_string(partial: "infowindow", locals: { task: task }),
+        image_url: helpers.asset_url('https://picsum.photos/300/300/?random')
       }
     end
   end
