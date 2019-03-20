@@ -1,14 +1,8 @@
 class ReviewsController < ApplicationController
-  def index
-    raise
-    @reviews = []
-
-    Task.where(owner: current_user).each do |task|
-      @reviews << Review.where(task: task) #not sure about this line
-    end
-
-    @reviews.flatten!
-  end
+  # def index
+  #   @reviews = my_reviews
+  #   raise
+  # end
 
   def new
     @task = Task.find(params[:task_id])
