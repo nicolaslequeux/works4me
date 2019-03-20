@@ -1,9 +1,7 @@
-
 <div class="container">
-
-  <div class="row">
-
-      <div class="col-md-4">
+  <div class="row justify-content-center">
+    <div class="col-xs-12 col-sm-6 col-sm-offset-4">
+      <div class="form-log">
 
         <h2>Sign up</h2>
 
@@ -45,12 +43,15 @@
           </div>
 
           <div class="form-actions">
-            <%= f.button :submit, "Sign up", class: "btn btn-warning"%>
+            <%= f.button :submit, "Sign up", class: "btn btn-primary" %>
           </div>
         <% end %>
 
         <%= render "devise/shared/links" %>
 
       </div>
+    </div>
   </div>
 </div>
+
+

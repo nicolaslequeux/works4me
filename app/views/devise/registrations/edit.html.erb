@@ -1,9 +1,7 @@
-
 <div class="container">
-
-  <div class="row">
-
-      <div class="col-md-4">
+  <div class="row justify-content-center">
+    <div class="col-xs-12 col-sm-6 col-sm-offset-4">
+      <div class="form-log">
 
         <h2>Edit <%= resource_name.to_s.humanize %></h2>
 
@@ -16,7 +14,7 @@
             <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
               <p>Currently waiting confirmation for: <%= resource.unconfirmed_email %></p>
             <% end %>
-@
+
             <%= f.input :first_name,
                         required: true,
                         autofocus: true %>
@@ -49,16 +47,15 @@
           </div>
 
           <div class="form-actions">
-            <%= f.button :submit, "Update" %>
+            <%= f.button :submit, "Update", class: "btn btn-primary" %>
+            <%= link_to "Cancel my account", registration_path(resource_name), class: "btn btn-warning", data: { confirm: "Are you sure?" }, method: :delete %>
+            <hr>
+            <%= link_to "Back", :back, class: "btn btn-secondary" %>
           </div>
+
         <% end %>
 
-        <h3>Cancel my account</h3>
-
-        <p>Unhappy? <%= link_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete %></p>
-
-        <%= link_to "Back", :back %>
-
       </div>
+    </div>
   </div>
 </div>
