@@ -1,0 +1,4 @@
+<% @reviews.each do |review| %>
+  <p>rating: <%= review.rating%></p>
+  <p>Posted by: <%= review.user.first_name %> <%= review.user.last_name %>, <%= review.created_at.strftime("%d/%m/%Y") %></p>
+<% end %>

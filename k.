@@ -1,0 +1,150 @@
+=> [[32m#<Task:0x00005611b84ac390[0m
+  id: [1;34m11[0m,
+  name: [31m[1;31m"[0m[31mCleaning[1;31m"[0m[31m[0m,
+  category: [31m[1;31m"[0m[31mmoving[1;31m"[0m[31m[0m,
+  description:
+   [31m[1;31m"[0m[31m[[1;35m\"[0m[31mSit autem pariatur. Ex assumenda minus. Modi illum neque.[1;35m\"[0m[31m, [1;35m\"[0m[31mQui nam voluptatem. Quia veritatis libero. Sed aut eos.[1;35m\"[0m[31m, [1;35m\"[0m[31mEt quod sit. Adipisci incidunt dolorem. Voluptatibus a odio.[1;35m\"[0m[31m][1;31m"[0m[31m[0m,
+  price: [1;34m38[0m,
+  address:
+   [31m[1;31m"[0m[31m353 Kling Square, South Edmundochester, FL 24297-8926[1;31m"[0m[31m[0m,
+  status: [31m[1;31m"[0m[31mresolved[1;31m"[0m[31m[0m,
+  picture: [31m[1;31m"[0m[31mhttp://lorempixel.com/400/400/[1;31m"[0m[31m[0m,
+  owner_user_id: [1;34m8[0m,
+  worker_user_id: [1;34m12[0m,
+  created_at: [1;34;4mTue[0m, [1;34m19[0m [1;34;4mMar[0m [1;34m2019[0m [1;34m15[0m:[1;34m37[0m:[1;34m21[0m [1;34;4mUTC[0m [1;34m+00[0m:[1;34m00[0m,
+  updated_at: [1;34;4mTue[0m, [1;34m19[0m [1;34;4mMar[0m [1;34m2019[0m [1;34m15[0m:[1;34m37[0m:[1;34m21[0m [1;34;4mUTC[0m [1;34m+00[0m:[1;34m00[0m[32m>[0m,
+ [32m#<Task:0x00005611b848f948[0m
+  id: [1;34m12[0m,
+  name: [31m[1;31m"[0m[31mCleaning[1;31m"[0m[31m[0m,
+  category: [31m[1;31m"[0m[31mironing[1;31m"[0m[31m[0m,
+  description:
+   [31m[1;31m"[0m[31m[[1;35m\"[0m[31mSed blanditiis vel. Reprehenderit minus et. Alias aut aut.[1;35m\"[0m[31m, [1;35m\"[0m[31mOmnis quae consequatur. Repellendus perferendis non. Totam pariatur exercitationem.[1;35m\"[0m[31m, [1;35m\"[0m[31mDoloremque incidunt porro. Aliquam incidunt distinctio. Non et temporibus.[1;35m\"[0m[31m][1;31m"[0m[31m[0m,
+  price: [1;34m91[0m,
+  address:
+   [31m[1;31m"[0m[31mApt. 129 3756 Kulas Ways, Port Raymundoside, TX 75575[1;31m"[0m[31m[0m,
+  status: [31m[1;31m"[0m[31mresolved[1;31m"[0m[31m[0m,
+  picture: [31m[1;31m"[0m[31mhttp://lorempixel.com/400/400/[1;31m"[0m[31m[0m,
+  owner_user_id: [1;34m12[0m,
+  worker_user_id: [1;34m8[0m,
+  created_at: [1;34;4mTue[0m, [1;34m19[0m [1;34;4mMar[0m [1;34m2019[0m [1;34m15[0m:[1;34m37[0m:[1;34m21[0m [1;34;4mUTC[0m [1;34m+00[0m:[1;34m00[0m,
+  updated_at: [1;34;4mTue[0m, [1;34m19[0m [1;34;4mMar[0m [1;34m2019[0m [1;34m15[0m:[1;34m37[0m:[1;34m21[0m [1;34;4mUTC[0m [1;34m+00[0m:[1;34m00[0m[32m>[0m,
+ [32m#<Task:0x00005611b848f4e8[0m
+  id: [1;34m13[0m,
+  name: [31m[1;31m"[0m[31mDriving[1;31m"[0m[31m[0m,
+  category: [31m[1;31m"[0m[31mCleaning[1;31m"[0m[31m[0m,
+  description:
+   [31m[1;31m"[0m[31m[[1;35m\"[0m[31mMaiores dolorum eum. Veritatis ipsam a. Ex occaecati dolorem.[1;35m\"[0m[31m, [1;35m\"[0m[31mEligendi praesentium enim. Itaque nihil quo. Nobis voluptatibus itaque.[1;35m\"[0m[31m, [1;35m\"[0m[31mEst quae ducimus. Sunt optio consequatur. Unde ea et.[1;35m\"[0m[31m][1;31m"[0m[31m[0m,
+  price: [1;34m69[0m,
+  address:
+   [31m[1;31m"[0m[31mApt. 639 1293 Brett Gateway, Grantfort, MA 58332-9690[1;31m"[0m[31m[0m,
+  status: [31m[1;31m"[0m[31munresolved[1;31m"[0m[31m[0m,
+  picture: [31m[1;31m"[0m[31mhttp://lorempixel.com/400/400/[1;31m"[0m[31m[0m,
+  owner_user_id: [1;34m11[0m,
+  worker_user_id: [1;34m13[0m,
+  created_at: [1;34;4mTue[0m, [1;34m19[0m [1;34;4mMar[0m [1;34m2019[0m [1;34m15[0m:[1;34m37[0m:[1;34m21[0m [1;34;4mUTC[0m [1;34m+00[0m:[1;34m00[0m,
+  updated_at: [1;34;4mTue[0m, [1;34m19[0m [1;34;4mMar[0m [1;34m2019[0m [1;34m15[0m:[1;34m37[0m:[1;34m21[0m [1;34;4mUTC[0m [1;34m+00[0m:[1;34m00[0m[32m>[0m,
+ [32m#<Task:0x00005611b848ec50[0m
+  id: [1;34m14[0m,
+  name: [31m[1;31m"[0m[31mMoving furnitures[1;31m"[0m[31m[0m,
+  category: [31m[1;31m"[0m[31mcomputering[1;31m"[0m[31m[0m,
+  description:
+   [31m[1;31m"[0m[31m[[1;35m\"[0m[31mAb ea dolorem. Ut est praesentium. Fugiat ipsa blanditiis.[1;35m\"[0m[31m, [1;35m\"[0m[31mAdipisci in sint. Illum ab aut. Sunt mollitia dolor.[1;35m\"[0m[31m, [1;35m\"[0m[31mDicta sit molestiae. Sunt sed esse. Minima cumque nam.[1;35m\"[0m[31m][1;31m"[0m[31m[0m,
+  price: [1;34m39[0m,
+  address:
+   [31m[1;31m"[0m[31m43147 Gerlach Spurs, Port Jacindatown, ID 61386[1;31m"[0m[31m[0m,
+  status: [31m[1;31m"[0m[31mpending[1;31m"[0m[31m[0m,
+  picture: [31m[1;31m"[0m[31mhttp://lorempixel.com/400/400/[1;31m"[0m[31m[0m,
+  owner_user_id: [1;34m8[0m,
+  worker_user_id: [1;34m13[0m,
+  created_at: [1;34;4mTue[0m, [1;34m19[0m [1;34;4mMar[0m [1;34m2019[0m [1;34m15[0m:[1;34m37[0m:[1;34m21[0m [1;34;4mUTC[0m [1;34m+00[0m:[1;34m00[0m,
+  updated_at: [1;34;4mTue[0m, [1;34m19[0m [1;34;4mMar[0m [1;34m2019[0m [1;34m15[0m:[1;34m37[0m:[1;34m21[0m [1;34;4mUTC[0m [1;34m+00[0m:[1;34m00[0m[32m>[0m,
+ [32m#<Task:0x00005611b848e2a0[0m
+  id: [1;34m15[0m,
+  name: [31m[1;31m"[0m[31mDigging a hole[1;31m"[0m[31m[0m,
+  category: [31m[1;31m"[0m[31mmoving[1;31m"[0m[31m[0m,
+  description:
+   [31m[1;31m"[0m[31m[[1;35m\"[0m[31mNumquam maiores aperiam. Et placeat dolore. Ratione perspiciatis quia.[1;35m\"[0m[31m, [1;35m\"[0m[31mAt totam officiis. Qui et in. Itaque non laborum.[1;35m\"[0m[31m, [1;35m\"[0m[31mIusto sit consequatur. A minima rerum. Error tempora aut.[1;35m\"[0m[31m][1;31m"[0m[31m[0m,
+  price: [1;34m30[0m,
+  address:
+   [31m[1;31m"[0m[31mApt. 838 3793 Senger Trail, East Oliva, CO 79826-7960[1;31m"[0m[31m[0m,
+  status: [31m[1;31m"[0m[31maccepeted[1;31m"[0m[31m[0m,
+  picture: [31m[1;31m"[0m[31mhttp://lorempixel.com/400/400/[1;31m"[0m[31m[0m,
+  owner_user_id: [1;34m10[0m,
+  worker_user_id: [1;34m13[0m,
+  created_at: [1;34;4mTue[0m, [1;34m19[0m [1;34;4mMar[0m [1;34m2019[0m [1;34m15[0m:[1;34m37[0m:[1;34m21[0m [1;34;4mUTC[0m [1;34m+00[0m:[1;34m00[0m,
+  updated_at: [1;34;4mTue[0m, [1;34m19[0m [1;34;4mMar[0m [1;34m2019[0m [1;34m15[0m:[1;34m37[0m:[1;34m21[0m [1;34;4mUTC[0m [1;34m+00[0m:[1;34m00[0m[32m>[0m,
+ [32m#<Task:0x00005611b848e020[0m
+  id: [1;34m16[0m,
+  name: [31m[1;31m"[0m[31mMoving furnitures[1;31m"[0m[31m[0m,
+  category: [31m[1;31m"[0m[31mdriving[1;31m"[0m[31m[0m,
+  description:
+   [31m[1;31m"[0m[31m[[1;35m\"[0m[31mTotam rerum asperiores. Et cum eum. Maiores vero quis.[1;35m\"[0m[31m, [1;35m\"[0m[31mQuidem numquam veniam. Sed fugit et. Explicabo id sint.[1;35m\"[0m[31m, [1;35m\"[0m[31mNon deserunt quis. Aliquid sed officia. Qui aut repellat.[1;35m\"[0m[31m][1;31m"[0m[31m[0m,
+  price: [1;34m61[0m,
+  address:
+   [31m[1;31m"[0m[31mSuite 494 2066 Greenholt Mountains, North Jaefurt, GA 49671[1;31m"[0m[31m[0m,
+  status: [31m[1;31m"[0m[31mexpired[1;31m"[0m[31m[0m,
+  picture: [31m[1;31m"[0m[31mhttp://lorempixel.com/400/400/[1;31m"[0m[31m[0m,
+  owner_user_id: [1;34m13[0m,
+  worker_user_id: [1;34m11[0m,
+  created_at: [1;34;4mTue[0m, [1;34m19[0m [1;34;4mMar[0m [1;34m2019[0m [1;34m15[0m:[1;34m37[0m:[1;34m21[0m [1;34;4mUTC[0m [1;34m+00[0m:[1;34m00[0m,
+  updated_at: [1;34;4mTue[0m, [1;34m19[0m [1;34;4mMar[0m [1;34m2019[0m [1;34m15[0m:[1;34m37[0m:[1;34m21[0m [1;34;4mUTC[0m [1;34m+00[0m:[1;34m00[0m[32m>[0m,
+ [32m#<Task:0x00005611b848db98[0m
+  id: [1;34m17[0m,
+  name: [31m[1;31m"[0m[31mMoving furnitures[1;31m"[0m[31m[0m,
+  category: [31m[1;31m"[0m[31mdriving[1;31m"[0m[31m[0m,
+  description:
+   [31m[1;31m"[0m[31m[[1;35m\"[0m[31mTemporibus consequatur est. Perspiciatis illo exercitationem. Quos perspiciatis nemo.[1;35m\"[0m[31m, [1;35m\"[0m[31mOmnis quisquam aut. Consectetur excepturi alias. Voluptatem sit quia.[1;35m\"[0m[31m, [1;35m\"[0m[31mEt accusamus adipisci. Reiciendis delectus itaque. Iste ad necessitatibus.[1;35m\"[0m[31m][1;31m"[0m[31m[0m,
+  price: [1;34m13[0m,
+  address:
+   [31m[1;31m"[0m[31mSuite 352 49198 Jaqueline Street, East Sharleen, NV 05477-5564[1;31m"[0m[31m[0m,
+  status: [31m[1;31m"[0m[31mresolved[1;31m"[0m[31m[0m,
+  picture: [31m[1;31m"[0m[31mhttp://lorempixel.com/400/400/[1;31m"[0m[31m[0m,
+  owner_user_id: [1;34m10[0m,
+  worker_user_id: [1;34m9[0m,
+  created_at: [1;34;4mTue[0m, [1;34m19[0m [1;34;4mMar[0m [1;34m2019[0m [1;34m15[0m:[1;34m37[0m:[1;34m21[0m [1;34;4mUTC[0m [1;34m+00[0m:[1;34m00[0m,
+  updated_at: [1;34;4mTue[0m, [1;34m19[0m [1;34;4mMar[0m [1;34m2019[0m [1;34m15[0m:[1;34m37[0m:[1;34m21[0m [1;34;4mUTC[0m [1;34m+00[0m:[1;34m00[0m[32m>[0m,
+ [32m#<Task:0x00005611b848d5f8[0m
+  id: [1;34m18[0m,
+  name: [31m[1;31m"[0m[31mDigging a hole[1;31m"[0m[31m[0m,
+  category: [31m[1;31m"[0m[31mironing[1;31m"[0m[31m[0m,
+  description:
+   [31m[1;31m"[0m[31m[[1;35m\"[0m[31mIure quia laborum. Amet ut eum. Ducimus adipisci et.[1;35m\"[0m[31m, [1;35m\"[0m[31mOdit excepturi architecto. Beatae architecto reiciendis. In dolores pariatur.[1;35m\"[0m[31m, [1;35m\"[0m[31mDoloribus nesciunt nostrum. Mollitia sit nostrum. In veritatis error.[1;35m\"[0m[31m][1;31m"[0m[31m[0m,
+  price: [1;34m10[0m,
+  address:
+   [31m[1;31m"[0m[31mSuite 109 853 Will Stream, East Tashina, NJ 47294[1;31m"[0m[31m[0m,
+  status: [31m[1;31m"[0m[31mexpired[1;31m"[0m[31m[0m,
+  picture: [31m[1;31m"[0m[31mhttp://lorempixel.com/400/400/[1;31m"[0m[31m[0m,
+  owner_user_id: [1;34m8[0m,
+  worker_user_id: [1;34m12[0m,
+  created_at: [1;34;4mTue[0m, [1;34m19[0m [1;34;4mMar[0m [1;34m2019[0m [1;34m15[0m:[1;34m37[0m:[1;34m21[0m [1;34;4mUTC[0m [1;34m+00[0m:[1;34m00[0m,
+  updated_at: [1;34;4mTue[0m, [1;34m19[0m [1;34;4mMar[0m [1;34m2019[0m [1;34m15[0m:[1;34m37[0m:[1;34m21[0m [1;34;4mUTC[0m [1;34m+00[0m:[1;34m00[0m[32m>[0m,
+ [32m#<Task:0x00005611b848c338[0m
+  id: [1;34m19[0m,
+  name: [31m[1;31m"[0m[31mMoving furnitures[1;31m"[0m[31m[0m,
+  category: [31m[1;31m"[0m[31mCleaning[1;31m"[0m[31m[0m,
+  description:
+   [31m[1;31m"[0m[31m[[1;35m\"[0m[31mDeserunt qui natus. Quidem rerum harum. Vel et quia.[1;35m\"[0m[31m, [1;35m\"[0m[31mOdit nihil facere. Itaque possimus sint. Consectetur praesentium aliquid.[1;35m\"[0m[31m, [1;35m\"[0m[31mRatione molestiae cumque. Repudiandae corporis rerum. Repellat veniam illum.[1;35m\"[0m[31m][1;31m"[0m[31m[0m,
+  price: [1;34m67[0m,
+  address:
+   [31m[1;31m"[0m[31m3947 Howell Route, Altenwerthberg, IL 32147[1;31m"[0m[31m[0m,
+  status: [31m[1;31m"[0m[31munresolved[1;31m"[0m[31m[0m,
+  picture: [31m[1;31m"[0m[31mhttp://lorempixel.com/400/400/[1;31m"[0m[31m[0m,
+  owner_user_id: [1;34m8[0m,
+  worker_user_id: [1;34m9[0m,
+  created_at: [1;34;4mTue[0m, [1;34m19[0m [1;34;4mMar[0m [1;34m2019[0m [1;34m15[0m:[1;34m37[0m:[1;34m21[0m [1;34;4mUTC[0m [1;34m+00[0m:[1;34m00[0m,
+  updated_at: [1;34;4mTue[0m, [1;34m19[0m [1;34;4mMar[0m [1;34m2019[0m [1;34m15[0m:[1;34m37[0m:[1;34m21[0m [1;34;4mUTC[0m [1;34m+00[0m:[1;34m00[0m[32m>[0m,
+ [32m#<Task:0x00005611b847aea8[0m
+  id: [1;34m20[0m,
+  name: [31m[1;31m"[0m[31mIroning[1;31m"[0m[31m[0m,
+  category: [31m[1;31m"[0m[31mdriving[1;31m"[0m[31m[0m,
+  description:
+   [31m[1;31m"[0m[31m[[1;35m\"[0m[31mLaudantium consectetur iure. Deleniti sit consectetur. Asperiores quia quo.[1;35m\"[0m[31m, [1;35m\"[0m[31mQuo et eveniet. Id molestiae tempora. Sint magnam voluptatem.[1;35m\"[0m[31m, [1;35m\"[0m[31mIllum qui ut. Error ex nam. Ut id iure.[1;35m\"[0m[31m][1;31m"[0m[31m[0m,
+  price: [1;34m43[0m,
+  address:
+   [31m[1;31m"[0m[31mApt. 408 99717 Dannette Grove, Shizuefurt, CA 07425[1;31m"[0m[31m[0m,
+  status: [31m[1;31m"[0m[31maccepeted[1;31m"[0m[31m[0m,
+  picture: [31m[1;31m"[0m[31mhttp://lorempixel.com/400/400/[1;31m"[0m[31m[0m,
+  owner_user_id: [1;34m12[0m,
+  worker_user_id: [1;34m10[0m,
+  created_at: [1;34;4mTue[0m, [1;34m19[0m [1;34;4mMar[0m [1;34m2019[0m [1;34m15[0m:[1;34m37[0m:[1;34m21[0m [1;34;4mUTC[0m [1;34m+00[0m:[1;34m00[0m,
+  updated_at: [1;34;4mTue[0m, [1;34m19[0m [1;34;4mMar[0m [1;34m2019[0m [1;34m15[0m:[1;34m37[0m:[1;34m21[0m [1;34;4mUTC[0m [1;34m+00[0m:[1;34m00[0m[32m>[0m]
