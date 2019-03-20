@@ -49,7 +49,7 @@ puts 'Creating Tasks...'
     owner_user_id: User.all.sample.id,
     worker_user_id: User.all.sample.id
     )
-    new_task.remote_picture_url = "http://lorempixel.com/400/400/"
+    new_task.remote_picture_url = "https://lorempixel.com/200/300/?random"
   new_task.save
   puts "#{new_task} - #{new_task.name} has been created as a #{new_task.valid?} item."
 end
