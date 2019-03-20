@@ -41,7 +41,7 @@ ActiveRecord::Schema.define(version: 2019_03_20_105335) do
     t.string "category"
     t.text "description"
     t.string "address"
-    t.string "status"
+    t.string "status", default: "pending"
     t.string "picture"
     t.integer "owner_user_id"
     t.integer "worker_user_id"
