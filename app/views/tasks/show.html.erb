@@ -4,8 +4,15 @@
 <p>Category: <%= @task.category %></p>
 <p>Description: <%= @task.description %></p>
 <p>Address: <%= @task.address %></p>
-<p>Price: <%= @task.price %></p>
+<p>Price: <%= @task.price.round(2) %></p>
 <p>Status: <%= @task.status %></p>
 <p>Average rating for owner: <%= @task.owner.average_rating_received %></p>
+
+<hr>
+<%= link_to "Back to index", tasks_path, class: "btn btn-warning" %>
+<hr>
+<%= cl_image_tag @task.picture, height: 200, width: 200, crop: :fill %>
+
 <%= link_to "Accept the task", task_path(@task), method: :patch, class: "btn btn-success btn-lg" %>
 <br>
+
