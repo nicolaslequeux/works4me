@@ -1,8 +1,9 @@
 <% @tasks.each do |task| %>
 <p><%= task.name %></p>
-<p><%= task.price %></p>
+<p>Amount: <%= humanized_money_with_symbol(task.price) %></p>
 <p><%= task.status %></p>
 <p><%= task.owner.first_name %></p>
+
 <% end %>
 
 <div

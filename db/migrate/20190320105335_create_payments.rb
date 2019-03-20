@@ -1,10 +1,12 @@
 class CreatePayments < ActiveRecord::Migration[5.2]
   def change
     create_table :payments do |t|
-      t.integer :amount
-      t.string :status
-      t.references :task, foreign_key: true
+      t.string :state
+      t.monetize :amount
       t.jsonb :payload
+      t.references :task, foreign_key: true
+
+      t.monetize :amount, currency: { present: false }
 
       t.timestamps
     end

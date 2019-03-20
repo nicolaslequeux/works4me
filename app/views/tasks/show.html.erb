@@ -3,8 +3,13 @@
 <p><%= @task.category %></p>
 <p><%= @task.description %></p>
 <p><%= @task.address %></p>
-<p><%= @task.price %></p>
+<p>Amount: <%= humanized_money_with_symbol(@task.price) %></p>
 <p><%= @task.status %></p>
+
+<%= form_tag payments_path do %>
+  <%= hidden_field_tag 'task_id', @task.id %>
+  <%= submit_tag 'Pay now', class: 'btn btn-primary' %>
+<% end %>
 
 
 ---------------------------------------------------
