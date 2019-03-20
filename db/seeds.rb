@@ -45,10 +45,11 @@ puts 'Creating Tasks...'
     price: Faker::Commerce.price,
     address: address_task.sample,
     status: status_task.sample,
-    picture: "http://lorempixel.com/400/400/",
+    picture: "",
     owner_user_id: User.all.sample.id,
     worker_user_id: User.all.sample.id
     )
+    new_task.remote_picture_url = "http://lorempixel.com/400/400/"
   new_task.save
   puts "#{new_task} - #{new_task.name} has been created as a #{new_task.valid?} item."
 end
