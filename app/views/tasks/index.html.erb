@@ -1,19 +1,11 @@
 
 <% @tasks.each do |task| %>
-
   <p><%= link_to "Name : #{task.name}",task_path(task.id) %></p>
   <p>Price: <%= task.price %></p>
+  <p>Amount: <%= humanized_money_with_symbol(task.price) %></p>
   <p>Status: <%= task.status %></p>
   <p>Owner: <%= task.owner.first_name %></p>
-
   <hr>
-
-<p><%= task.name %></p>
-<p>Amount: <%= humanized_money_with_symbol(task.price) %></p>
-<p><%= task.status %></p>
-<p><%= task.owner.first_name %></p>
-
-
 <% end %>
 
 <div
@@ -24,4 +16,5 @@
   data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"
 ></div>
 
+<hr>
 
