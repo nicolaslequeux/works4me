@@ -1,14 +1,20 @@
+
 <% @tasks.each do |task| %>
-<p><%= task.name %></p>
-<p><%= task.price %></p>
-<p><%= task.status %></p>
-<p><%= task.owner.first_name %></p>
+  <p><%= link_to "Name : #{task.name}",task_path(task.id) %></p>
+  <p>Price: <%= task.price %></p>
+  <p>Status: <%= task.status %></p>
+  <p>Owner: <%= task.owner.first_name %></p>
+
+
+  <hr>
 <% end %>
 
 <div
   id="map"
-  style="width: 100%;
+  style="width: 800px;
   height: 600px;"
   data-markers="<%= @markers.to_json %>"
   data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"
 ></div>
+
+

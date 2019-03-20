@@ -1,12 +1,18 @@
+
 <h2><%= @task.name %></h2>
-<h4><%= @task.owner.first_name %></h4>
-<p><%= @task.category %></p>
-<p><%= @task.description %></p>
-<p><%= @task.address %></p>
-<p><%= @task.price %></p>
-<p><%= @task.status %></p>
 
+<p>Owner: <%= @task.owner.first_name %></p>
+<p>Category: <%= @task.category %></p>
+<p>Description: <%= @task.description %></p>
+<p>Address: <%= @task.address %></p>
+<p>Price: <%= @task.price %></p>
+<p>Status: <%= @task.status %></p>
+<p>Average rating for owner: <%= @task.owner.average_rating_received %></p>
 
----------------------------------------------------
+<div>
+  <%= cl_image_tag @task.picture, height: 200, width: 200, crop: :fill %>
+</div>
 
-<%= @task.owner.average_rating_received %>
+<br>
+
+<%= link_to "Back to index", tasks_path, class: "btn btn-warning" %>
