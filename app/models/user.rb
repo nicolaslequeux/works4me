@@ -32,7 +32,7 @@ class User < ApplicationRecord
     self.reviews.each do |review|
       sum += review.rating
     end
-    sum / counter
+    (sum / counter).round(2)
   end
 
 end
