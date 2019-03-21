@@ -25,5 +25,15 @@ class User < ApplicationRecord
     end
     (sum / counter).round(1)
   end
+
+  def average_rating_received_from_user_view
+    sum = 0.0
+    counter = self.reviews.count
+    self.reviews.each do |review|
+      sum += review.rating
+    end
+    sum / counter
+  end
+
 end
 
