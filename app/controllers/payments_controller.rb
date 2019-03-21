@@ -40,10 +40,20 @@ class PaymentsController < ApplicationController
   end
 
   def update
+    update_task
+  end
+
+  private
+
+  def update_task
     @payment = Payment.find(params[:id])
     @task = Task.find(params[:task_id])
     @status = params[:payment][:task_status]
-    @task.status = @status
+    if @status == "rejected"
+      @task.status = "pending"
+    else
+      @task.status = @status
+    end
     @task.save
     redirect_to task_payment_path(@task, @payment)
   end
