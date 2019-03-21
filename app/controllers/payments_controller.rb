@@ -36,5 +36,15 @@ class PaymentsController < ApplicationController
 
   def show
     @payment = Payment.find(params[:id])
+    @task = Task.find(params[:task_id])
+  end
+
+  def update
+    @payment = Payment.find(params[:id])
+    @task = Task.find(params[:task_id])
+    @status = params[:payment][:task_status]
+    @task.status = @status
+    @task.save
+    redirect_to task_payment_path(@task, @payment)
   end
 end
