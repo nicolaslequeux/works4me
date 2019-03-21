@@ -38,8 +38,10 @@
                         required: true,
                         autofocus: true %>
 
-            <%= f.input :avatar, label: "Time for some nice pics 😉" %>
+            <div>
+            <%= f.input :avatar, label: "Avatar picture" %>
             <%= f.input :avatar_cache, as: :hidden %>
+            </div>
 
             <%= f.input :is_available,
                         label: "I am available for a work",
