@@ -34,8 +34,9 @@ class TasksController < ApplicationController
   def update
     @task = Task.find(params[:id])
     @task.status = "accepted"
+    @task.worker = current_user
     @task.save!
-    redirect_to tasks_path
+    redirect_to task_path(@task)
   end
 
   private
