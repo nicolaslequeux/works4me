@@ -9,6 +9,13 @@
           <%= f.error_notification %>
 
           <div class="form-inputs">
+
+            <% if @user.avatar.present? %>
+              <%= cl_image_tag @user.avatar, height: 200, width: 200, crop: :fill %>
+            <% else %>
+              <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg", height="200", width="200", crop="fill">
+            <% end %>
+
             <%= f.input :email, required: true, autofocus: true %>
 
             <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
@@ -31,6 +38,21 @@
                         required: true,
                         autofocus: true %>
 
+            <div>
+            <%= f.input :avatar, label: "Avatar picture" %>
+            <%= f.input :avatar_cache, as: :hidden %>
+            </div>
+
+            <%= f.input :is_available,
+                        label: "I am available for a work",
+                        autofocus: true %>
+
+            <p> Rating: <%= current_user.average_rating_received_from_user_view %> <i class="fas fa-star"></i></p>
+
+            <%= f.input :bio,
+                        required: true,
+                        autofocus: true %>
+
             <%= f.input :password,
                         hint: "leave it blank if you don't want to change it",
                         required: false,
@@ -47,10 +69,15 @@
           </div>
 
           <div class="form-actions">
+
             <%= f.button :submit, "Update", class: "btn btn-primary" %>
+
             <%= link_to "Cancel my account", registration_path(resource_name), class: "btn btn-warning", data: { confirm: "Are you sure?" }, method: :delete %>
+
             <hr>
+
             <%= link_to "Back", :back, class: "btn btn-secondary" %>
+
           </div>
 
         <% end %>
@@ -59,3 +86,4 @@
     </div>
   </div>
 </div>
+
