@@ -18,7 +18,7 @@ class User < ApplicationRecord
       counter += 1
       end
     end
-    sum / counter
+    (sum / counter).round(1)
   end
 end
 
