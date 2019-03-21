@@ -1,0 +1,132 @@
+.wrapper_index {
+  display: flex;
+}
+.button_positioning {
+   position: fixed; /* or absolute */
+  top: 85%;
+  left: 40%;
+}
+#map {
+  height: calc(100vh)  !important;
+  position: sticky;
+  top: 0px;
+  flex-grow: 1;
+}
+
+.card_task {
+/*   width: 50%; */
+  overflow: hidden;
+  background: white;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+}
+.card_task > img {
+  height: 200px;
+  width: 100%;
+  object-fit: cover;
+}
+.card_task {
+  h2 {
+    font-size: 16px;
+    font-weight: bold;
+    margin: 0;
+  }
+
+  p {
+    font-size: 12px;
+    opacity: .7;
+    margin: 0;
+  }
+}
+.card_task .card_task_infos {
+  padding: 16px;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  position: relative;
+}
+
+.card_task_infos .card_task_user {
+  position: absolute;
+  right: 16px;
+  top: -20px;
+  width: 40px;
+  flex-grow: 1;
+}
+
+
+.cards {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-gap: 16px;
+  width: 75vw;
+  padding: 20px;
+}
+
+// Smallest device
+@media (min-width: 100px) and (max-width: 575px) {
+  .cards {
+    grid-template-columns: 1fr;
+    width: 100%;
+  }
+
+  #map {
+    display: none;
+  }
+  #button_map {
+    display: block;
+  }
+}
+
+// Small devices (landscape phones, 576px and up)
+@media (min-width: 576px) {
+  .cards {
+    grid-template-columns: 1fr;
+    width: 100%;
+  }
+
+  #map {
+    display: none;
+  }
+  #button_map {
+    display: block;
+  }
+}
+
+// Medium devices (tablets, 768px and up)
+@media (min-width: 768px) {
+  .cards {
+    grid-template-columns: 1fr 1fr;
+    width: 100%;
+  }
+  #map {
+    display: none;
+  }
+  #button_map {
+    display: block;
+  }
+}
+
+// Large devices (desktops, 992px and up)
+// @media (min-width: 992px) {
+//   .cards {
+//     grid-template-columns: 1fr 1fr;
+//   }
+//   #map {
+//     display: block;
+//   }
+// }
+
+// Extra large devices (large desktops, 1200px and up)
+@media (min-width: 1200px) {
+  .cards {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+
+  #map {
+    display: block;
+  }
+   #button_map {
+    display: none;
+  }
+}
+
