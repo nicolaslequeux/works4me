@@ -9,6 +9,13 @@
           <%= f.error_notification %>
 
           <div class="form-inputs">
+
+            <% if @user.avatar.present? %>
+              <%= cl_image_tag @user.avatar, height: 200, width: 200, crop: :fill %>
+            <% else %>
+              <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg", height="200", width="200", crop="fill">
+            <% end %>
+
             <%= f.input :email, required: true, autofocus: true %>
 
             <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
@@ -29,6 +36,13 @@
 
             <%= f.input :phone_number,
                         required: true,
+                        autofocus: true %>
+
+            <%= f.input :avatar, label: "Time for some nice pics 😉" %>
+            <%= f.input :avatar_cache, as: :hidden %>
+
+            <%= f.input :is_available,
+                        label: "I am available for a work",
                         autofocus: true %>
 
             <%= f.input :password,
