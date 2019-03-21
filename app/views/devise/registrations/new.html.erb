@@ -26,6 +26,13 @@
                         required: true,
                         autofocus: true %>
 
+            <%= f.input :is_available,
+                        label: "I am available for a work",
+                        autofocus: true %>
+
+            <%= f.input :avatar, label: "Time for some nice pics 😉" %>
+            <%= f.input :avatar_cache, as: :hidden %>
+
             <%= f.input :email,
                         required: true,
                         autofocus: true,

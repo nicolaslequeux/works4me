@@ -9,6 +9,11 @@ class User < ApplicationRecord
   has_many :owned_tasks, class_name: "Task", foreign_key: "owner_user_id"
   has_many :assigned_tasks, class_name: "Task", foreign_key: "worker_user_id"
 
+  geocoded_by :address
+  after_validation :geocode, if: :will_save_change_to_address?
+
+  mount_uploader :avatar, PhotoUploader
+
   def average_rating_received
     sum = 0.0
     counter = 0
