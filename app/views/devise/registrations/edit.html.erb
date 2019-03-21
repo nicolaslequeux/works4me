@@ -47,7 +47,7 @@
                         label: "I am available for a work",
                         autofocus: true %>
 
-            <p> Rating: <%= current_user.average_rating_received_from_user_view %> </p>
+            <p> Rating: <%= current_user.average_rating_received_from_user_view %> <i class="fas fa-star"></i></p>
 
             <%= f.input :bio,
                         required: true,
@@ -69,10 +69,15 @@
           </div>
 
           <div class="form-actions">
+
             <%= f.button :submit, "Update", class: "btn btn-primary" %>
+
             <%= link_to "Cancel my account", registration_path(resource_name), class: "btn btn-warning", data: { confirm: "Are you sure?" }, method: :delete %>
+
             <hr>
+
             <%= link_to "Back", :back, class: "btn btn-secondary" %>
+
           </div>
 
         <% end %>
@@ -81,3 +86,4 @@
     </div>
   </div>
 </div>
+
