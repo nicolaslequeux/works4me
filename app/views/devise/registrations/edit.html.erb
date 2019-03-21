@@ -47,6 +47,12 @@
                         label: "I am available for a work",
                         autofocus: true %>
 
+            <p> Rating: <%= current_user.average_rating_received_from_user_view %> </p>
+
+            <%= f.input :bio,
+                        required: true,
+                        autofocus: true %>
+
             <%= f.input :password,
                         hint: "leave it blank if you don't want to change it",
                         required: false,
