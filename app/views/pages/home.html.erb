@@ -1,4 +1,28 @@
-<h1>Pages#home</h1>
+<!-- <h1>Pages#home</h1>
 <p>Find me in app/views/pages/home.html.erb</p>
-<%= link_to "Post a task", new_task_path , class: "btn btn-success btn-lg" %>
-<%= link_to "Take a task", tasks_path, class: "btn btn-success btn-lg" %>
+<%#= link_to "Post a task", new_task_path , class: "btn btn-success btn-lg" %>
+<%#= link_to "Take a task", tasks_path, class: "btn btn-success btn-lg" %>
+
+ -->
+
+
+<div class="grid">
+  <!--Left side-->
+  <div id="west" class="column effect-hover">
+    <div class="content">
+      <i class="fas fa-pizza-slice" aria-hidden="true"></i>
+      <h2>Request a <span>Job</span></h2>
+      <h3>Call for help</h3>
+      <%= link_to "Post a task", new_task_path , class: "btn btn-success btn-lg" %>
+    </div>
+  </div>
+  <!--Right side-->
+  <div id="east" class="column effect-hover">
+    <div class="content">
+      <i class="fas fa-tools" aria-hidden="true"></i>
+      <h2>Search 4 <span>Jobs</span></h2>
+      <h3>Do something today</h3>
+      <%= link_to "Take a task", tasks_path, class: "btn btn-success btn-lg" %>
+    </div>
+  </div>
+</div>
