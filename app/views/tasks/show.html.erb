@@ -1,0 +1,5 @@
+    <% if @task.owner == current_user %>
+    <%=  render partial: "tasks/shared/owner_show" %>
+    <% elsif @task.owner != current_user %>
+    <%=  render partial: "tasks/shared/worker_show" %>
+    <% end %>

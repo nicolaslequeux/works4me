@@ -18,11 +18,6 @@ class TasksController < ApplicationController
   def show
     @task = Task.find(params[:id])
     @payment = @task.payment
-    if @task.owner == current_user
-      render "shared/owner_show.html.erb"
-    elsif @task.owner != current_user
-      render "shared/worker_show.html.erb"
-    end
   end
 
   def new
