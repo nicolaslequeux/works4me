@@ -5,4 +5,47 @@
 .mapboxgl-popup-content {
   text-align: center;
   font-family: 'Open Sans', sans-serif;
+  padding: 0px !important;
+}
+
+
+.card_task_map {
+/*   width: 50%; */
+  overflow: hidden;
+  background: white;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+}
+.card_task_map > img {
+  height: 100px;
+  width: 100%;
+  object-fit: cover;
+}
+.card_task_map {
+  h2 {
+    font-size: 16px;
+    font-weight: bold;
+    margin: 0;
+  }
+
+  p {
+    font-size: 12px;
+    opacity: .7;
+    margin: 0;
+  }
+}
+.card_task_map .card_task_infos_map {
+  padding: 16px;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  position: relative;
+  height: 150px;
+}
+
+.card_task_infos_map .card_task_user_map {
+  position: absolute;
+  right: 65px;
+  top: -35px;
+  width: 70px;
+  flex-grow: 1;
 }

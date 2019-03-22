@@ -5,6 +5,11 @@ class TasksController < ApplicationController
     @tasks = Task.all
     @tasks_mapped = Task.where.not(latitude: nil, longitude: nil)
 
+    if params[:category].present?
+      @tasks = @tasks.where("category ILIKE ?", "%#{params[:category]}%")
+      @tasks_mapped = @tasks_mapped.where("category ILIKE ?", "%#{params[:category]}%")
+    end
+
     @markers = @tasks.map do |task|
       {
         lat: task.latitude,
