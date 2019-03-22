@@ -12,4 +12,9 @@ class PagesController < ApplicationController
 
   def contact
   end
+
+  def profile
+    # "show" view for user
+    @user = current_user
+  end
 end
