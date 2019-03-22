@@ -27,34 +27,12 @@ class PaymentsController < ApplicationController
       task: @task,
     )
 
-    redirect_to task_payment_path(@task, payment)
+    @task.payment = payment
+    @task.save
+    redirect_to task_path(@task)
 
   rescue Stripe::CardError => e
     flash[:alert] = e.message
     redirect_to new_order_payment_path(@order)
-  end
-
-  def show
-    @payment = Payment.find(params[:id])
-    @task = Task.find(params[:task_id])
-  end
-
-  def update
-    update_task
-  end
-
-  private
-
-  def update_task
-    @payment = Payment.find(params[:id])
-    @task = Task.find(params[:task_id])
-    @status = params[:payment][:task_status]
-    if @status == "rejected"
-      @task.status = "pending"
-    else
-      @task.status = @status
-    end
-    @task.save
-    redirect_to task_payment_path(@task, @payment)
   end
 end

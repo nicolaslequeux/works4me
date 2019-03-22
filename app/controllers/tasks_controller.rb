@@ -17,6 +17,7 @@ class TasksController < ApplicationController
 
   def show
     @task = Task.find(params[:id])
+    @payment = @task.payment
   end
 
   def new
@@ -33,15 +34,32 @@ class TasksController < ApplicationController
 
   def update
     @task = Task.find(params[:id])
-    @task.status = "accepted"
-    @task.worker = current_user
-    @task.save!
-    redirect_to task_path(@task)
+    @payment = @task.payment
+    update_task_status
   end
 
   private
 
   def task_params
     params.require(:task).permit(:name, :category, :description, :price, :address, :status, :picture)
+  end
+
+  def update_task_status
+    @task = Task.find(params[:id])
+    if @task.owner == current_user
+      @status = params[:task][:task_status]
+      if @status == "rejected"
+        @task.status = "pending"
+      else
+        @task.status = @status
+      end
+      @task.save
+      redirect_to task_path(@task, @payment)
+    else
+      @task.status = "accepted"
+      @task.worker = current_user
+      @task.save!
+      redirect_to task_path(@task)
+    end
   end
 end
