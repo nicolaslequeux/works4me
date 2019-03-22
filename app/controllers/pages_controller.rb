@@ -17,4 +17,6 @@ class PagesController < ApplicationController
     # "show" view for user
     @user = current_user
   end
+
 end
+
