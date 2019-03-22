@@ -2,9 +2,12 @@
   display: flex;
 }
 .button_positioning {
-   position: fixed; /* or absolute */
-  top: 85%;
-  left: 40%;
+  position: fixed; /* or absolute */
+  bottom: 10%;
+  left: -100px;
+  width: 200px;
+  margin-left: 50%;
+  text-align: center;
 }
 #map {
   height: calc(100vh)  !important;
@@ -12,12 +15,22 @@
   top: 0px;
   flex-grow: 1;
 }
-
+.map_display {
+  display: block !important;
+  height: 100% !important;
+  width: 100vh !important;
+}
+.cards_hide {
+  display: none !important;
+  // height: 100%;
+  // width: 100%;
+}
 .card_task {
 /*   width: 50%; */
   overflow: hidden;
   background: white;
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  max-height: 400px !important;
 }
 .card_task > img {
   height: 200px;
