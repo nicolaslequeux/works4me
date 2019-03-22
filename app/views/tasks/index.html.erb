@@ -1,8 +1,22 @@
+
+<style>
+.navbar-lewagon {
+  background: rgba(244,183,147, 1);  /*(10,14,79, 1)*/
+
+  width: 100%;
+  }
+  .navbar-brand {
+    color: white !important;
+  }
+</style>
+
+
 <%= link_to "all", tasks_path, class: "btn btn-primary" %>
 
 <% Task.all_categories.each do |category| %>
   <%= link_to category, tasks_path(category: category), class: "btn btn-primary" %>
 <% end %>
+
 
 <div class="wrapper_index">
 
