@@ -36,3 +36,24 @@
 
 <!-- go back to the previous page if exists -->
 <%= link_to "back", (request.referer.present? ? request.referer : root_path), class: "btn btn-primary" %>
+
+
+
+<!-- ################ PRINTING HISTORICAL TASKS/WORKS -->
+
+<h3>--- printing the reviews for the user ---</h3>
+
+<% @user.reviews.each do |review| %>
+
+  <p>Created on <%= review.created_at.strftime("%d/%m/%Y - %-dh%d") %>
+    for task_id <%= review.task_id %>
+    by user_id <%= review.user_id %>
+    with rating <%= review.rating %>/5</p>
+
+  <p>Tasker name : <%= @user.first_name %> - Worker name : <%= User.find(Task.find(review.task_id).worker_user_id).first_name %></p>
+
+  <hr>
+
+<% end %>
+
+
