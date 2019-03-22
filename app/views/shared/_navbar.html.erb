@@ -11,13 +11,11 @@
   </button>
 
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <form class="form-inline nav-search">
+      <input class="form-control" type="text" placeholder="Search" aria-label="Search">
+    </form>
     <ul class="navbar-nav mr-auto">
       <% if user_signed_in? %>
-
-        <li class="nav-item active">
-          <%= link_to "Home", root_path, class: "nav-link" %>
-        </li>
-
 <!--         <li class="nav-item">
           <%#= link_to "Messages", "#", class: "nav-link" %>
         </li> -->
