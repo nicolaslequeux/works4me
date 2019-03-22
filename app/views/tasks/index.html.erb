@@ -1,20 +1,33 @@
+<div class="wrapper_index">
 
-<% @tasks.each do |task| %>
-  <p><%= link_to "Name : #{task.name}",task_path(task.id) %></p>
-  <p>Price: <%= task.price %></p>
-  <p>Amount: <%= humanized_money_with_symbol(task.price) %></p>
-  <p>Status: <%= task.status %></p>
-  <p>Owner: <%= task.owner.first_name %></p>
-  <hr>
-<% end %>
+  <div class="cards">
+    <% @tasks.each do |task| %>
+    <div class="card_task">
+      <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/greece.jpg">
+      <div class="card_task_infos">
+        <div>
+          <h2><%= link_to "#{task.name}",task_path(task.id) %></h2>
+          <p>Status: <%= task.status %></p>
+          <p>Owner: <%= task.owner.first_name %></p>
+        </div>
+        <h2 class="card_task_pricing"><%= humanized_money_with_symbol(task.price) %></h2>
+        <img src='https://kitt.lewagon.com/placeholder/users/krokrob' class="card_task_user avatar-bordered"/>
+      </div>
+    </div>
+    <% end %>
+  </div>
 
-<div
+
+  <div
   id="map"
   style="width: 800px;
   height: 600px;"
   data-markers="<%= @markers.to_json %>"
   data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"
-></div>
+  ></div>
 
-<hr>
+</div>
 
+<div class="button_positioning" id ="button_map">
+<button type="button" class="btn btn-primary">Switch to map</button>
+</div>
