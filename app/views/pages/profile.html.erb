@@ -15,10 +15,6 @@
 
 <p>Rating: <%=rating_per_cent%> %</p>
 
-<div class="progress">
-  <div class="progress-bar bg-success" role="progressbar" style="width: <%= rating_per_cent %>%;" aria-valuenow="<%= rating_per_cent %>" aria-valuemin="0" aria-valuemax="100">Rating <%= rating_per_cent %>%</div>
-</div>
-
 <hr>
 
 <p>Is available? <%= current_user.is_available %></p>
@@ -29,10 +25,46 @@
 <p><%= @user.address %></p>
 <p>Phone: <%= @user.phone_number %></p>
 <p>Email: <%= @user.email %></p>
-
-<hr>
-
 <p>Bio: <%= current_user.bio %></p>
 
+<hr>
+<strong> Reviews for <%= @user.first_name %> <%= @user.last_name %></strong>
+<hr>
+
+<div class="container">
+    <div class="row">
+      <div class="col">
+        <strong>Worker</strong>
+      </div>
+      <div class="col">
+        <strong>Review date</strong>
+      </div>
+      <div class="col">
+        <strong>Rating</strong>
+      </div>
+    </div>
+  <% @user.reviews.each do |review| %>
+      <div class="row">
+        <div class="col">
+          <%= User.find_worker_by_task(review).first_name %>
+        </div>
+        <div class="col">
+          <%= @user.first_name %> on <%= review.created_at.strftime("%d/%m/%Y - %-dh%d") %>
+        </div>
+        <div class="col">
+          <%= review.rating %>/5
+        </div>
+      </div>
+  <% end %>
+</div>
+
+<p>Average rating for <%= @user.first_name %> is <strong><%=rating_per_cent%> %</strong></p>
+
+<div class="progress">
+  <div class="progress-bar bg-success" role="progressbar" style="width: <%= rating_per_cent %>%;" aria-valuenow="<%= rating_per_cent %>" aria-valuemin="0" aria-valuemax="100">Rating <%= rating_per_cent %>%</div>
+</div>
+
+<br>
 <!-- go back to the previous page if exists -->
 <%= link_to "back", (request.referer.present? ? request.referer : root_path), class: "btn btn-primary" %>
+<br>
