@@ -1,6 +1,3 @@
-@task = Task.find(params[:id])
-@payment = @task.payment
-
 <% if @task.status == "pending"%>
 
   <h2><%= @task.name %></h2>

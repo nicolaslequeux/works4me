@@ -1,6 +1,3 @@
-@task = Task.find(params[:id])
-@payment = @task.payment
-
 <!-- VIEW FOR PENDING & REJECTED-->
 <% if @task.status == "pending" %>
   <h2>You are all set!</h1>
