@@ -12,4 +12,5 @@ class Review < ApplicationRecord
 
   #   return @reviews.flatten!
   # end
+
 end

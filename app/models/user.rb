@@ -35,5 +35,9 @@ class User < ApplicationRecord
     (sum / counter).round(2)
   end
 
+  def self.find_worker_by_task(review)
+    User.find(Task.find(review.task_id).worker_user_id)
+  end
+
 end
 

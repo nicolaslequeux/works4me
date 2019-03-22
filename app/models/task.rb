@@ -12,4 +12,8 @@ class Task < ApplicationRecord
 
   mount_uploader :picture, PhotoUploader
 
+  def self.all_categories
+    self.all.pluck(:category).sort.uniq
+  end
+
 end

@@ -28,7 +28,8 @@ test_user = User.new(
     address: "Milan",
     email: "test@test.com",
     password: "123456",
-    avatar: ""
+    avatar: "",
+    bio: "I am a Ninja killer!"
     )
     test_user.remote_avatar_url = "https://aa1a5178aef33568e9c4-a77ea51e8d8892c1eb8348eb6b3663f6.ssl.cf5.rackcdn.com/p/full/446f5b44-1ba0-43ac-a8bf-ddd709cc8996.jpg"
   test_user.save

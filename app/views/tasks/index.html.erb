@@ -1,3 +1,4 @@
+
 <style>
 .navbar-lewagon {
   background: rgba(244,183,147, 1);  /*(10,14,79, 1)*/
@@ -10,17 +11,23 @@
 </style>
 
 
+<%= link_to "all", tasks_path, class: "btn btn-primary" %>
+
+<% Task.all_categories.each do |category| %>
+  <%= link_to category, tasks_path(category: category), class: "btn btn-primary" %>
+<% end %>
+
 
 <div class="wrapper_index">
 
-  <div class="cards">
+  <div class="cards" id="cardgrid">
     <% @tasks.each do |task| %>
     <div class="card_task">
       <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/greece.jpg">
       <div class="card_task_infos">
         <div>
           <h2><%= link_to "#{task.name}",task_path(task.id) %></h2>
-          <p>Status: <%= task.status %></p>
+          <p>Status: <%= task.status %> (<%= task.category %> )</p>
           <p>Owner: <%= task.owner.first_name %></p>
         </div>
         <h2 class="card_task_pricing"><%= humanized_money_with_symbol(task.price) %></h2>
@@ -29,7 +36,6 @@
     </div>
     <% end %>
   </div>
-
 
   <div
   id="map"
@@ -41,6 +47,30 @@
 
 </div>
 
-<div class="button_positioning" id ="button_map">
+<div class="button_positioning" id="button_map">
 <button type="button" class="btn btn-primary">Switch to map</button>
 </div>
+
+<script>
+
+
+
+
+  // get element by id or class to find the button
+  const showmap = document.getElementById("map");
+  const cardgrid = document.getElementById("cardgrid");
+
+  // add event listener for click to the button
+  document.getElementById("button_map").addEventListener("click", (event) => {
+    // showmap.style.display = "block";
+    showmap.classList.toggle("map_display");
+    cardgrid.classList.toggle("cards_hide");
+    window.mapbox.resize();
+    fitMapToMarkers(window.mapbox, window.markers);
+    // cardgrid.style.display = "none";
+});
+  // add class with display none on the cards container
+
+  // add class display blovk to the map t make it full screen
+</script>
+
