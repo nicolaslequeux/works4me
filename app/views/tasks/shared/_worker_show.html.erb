@@ -49,7 +49,12 @@ body {
       <p>Price: <%= @task.price.round(2) %></p>
       <p>Status: <%= @task.status %></p>
       <p>Average rating for owner: <%= @task.owner.average_rating_received %></p>
-      <%= link_to "Accept the task", task_path(@task), method: :patch, class: "btn btn-success btn-lg" %>
+      <% if @task.rejections.include?(current_user.id) %>
+        <h3>Sorry, <%= @task.owner.first_name %> has rejected your offer</h3>
+        <%= link_to "Apply anyway", task_path(@task), method: :patch, class: "btn btn-success btn-lg" %>
+      <% else %>
+        <%= link_to "Accept the task", task_path(@task), method: :patch, class: "btn btn-success btn-lg" %>
+      <% end %>
     </div>
   </div>
 
