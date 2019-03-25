@@ -12,7 +12,7 @@
 
 <div class="wrapper_index">
 
-<div class="left-half">
+<div class="left-half" id="cardgrid">
   <section class="search-sec">
     <div class="container">
        <form action="/tasks" method="get" novalidate="novalidate">
@@ -52,7 +52,7 @@
         </form>
     </div>
   </section>
-    <div class="cards">
+    <div class="cards" >
       <% @tasks.each do |task| %>
       <div class="card_task">
         <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/greece.jpg">
