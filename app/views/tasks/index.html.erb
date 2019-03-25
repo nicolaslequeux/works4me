@@ -44,7 +44,7 @@
                             </select>
                         </div>
                         <div class="col-lg-3 col-md-3 col-sm-12 p-0">
-                            <button type="sbumit" class="btn btn-danger wrn-btn">Search</button>
+                            <button type="sbumit" class="btn btn-success wrn-btn">Search</button>
                         </div>
                     </div>
                 </div>
@@ -55,7 +55,21 @@
     <div class="cards" >
       <% @tasks.each do |task| %>
       <div class="card_task">
-        <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/greece.jpg">
+        <!-- <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/greece.jpg"> -->
+
+        <% if task.picture.present? %>
+        <%= cl_image_tag task.picture, crop: :fill %>
+          <% else %>
+             <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg">
+          <% end %>
+
+
+
+
+
+
+
+
         <div class="card_task_infos">
           <div>
             <h2><%= link_to "#{task.name}",task_path(task.id), :class => 'stretched-link' %></h2>
