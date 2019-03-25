@@ -36,7 +36,7 @@ test_user = User.new(
 
 name_task = ["Cleaning", "Moving furnitures", "Driving", "Digging a hole", "Ironing"]
 category_task = ["Cleaning", "moving", "driving", "ironing", "sewing", "computering"]
-status_task = ["pending", "accepeted", "refused", "resolved", "unresolved", "cancelled"]
+status_task = ["pending", "accepeted", "refused", "resolved", "unresolved", "canceled"]
 address_task = ["Rome", "Milan", "Paris", "Madrid", "Berlin", "London", "Brussels"]
 
 puts 'Creating Tasks... with worker'

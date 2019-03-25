@@ -60,12 +60,12 @@ class TasksController < ApplicationController
         @task.status = @status
       end
       @task.save
-      redirect_to task_path(@task, @payment)
+      redirect_or_fallback(task_path(@task, @payment))
     else
       @task.status = "accepted"
       @task.worker = current_user
       @task.save!
-      redirect_to task_path(@task)
+      redirect_or_fallback(task_path(@task))
     end
   end
 

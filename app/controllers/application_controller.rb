@@ -11,4 +11,12 @@ class ApplicationController < ActionController::Base
     devise_parameter_sanitizer.permit(:sign_in, keys: [:email, :password, :remember_me])
     devise_parameter_sanitizer.permit(:account_update, keys: [:first_name, :last_name, :address, :phone_number, :email, :password, :password_confirmation, :remember_me, :avatar, :is_available, :bio])
   end
+
+  def redirect_or_fallback(fallback_url)
+    if params[:redirect_to]
+      redirect_to params[:redirect_to]
+    else
+      redirect_to fallback_url
+    end
+  end
 end
