@@ -1,0 +1,7 @@
+<h1>Your task was accepted</h1>
+
+<p>
+  Your task has been accepted by <%= @task.worker.first_name %> <%= @task.worker.last_name %>
+  <p><%= link_to "Go to the Task", task_url(@task) %></p>
+  <!-- Here should be a link to the worker profile in the future -->
+</p>

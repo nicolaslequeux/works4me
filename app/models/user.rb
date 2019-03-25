@@ -1,4 +1,5 @@
 class User < ApplicationRecord
+  after_create :send_welcome_email
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :omniauthable, omniauth_providers: [:facebook]
@@ -41,6 +42,10 @@ class User < ApplicationRecord
     User.find(Task.find(review.task_id).worker_user_id)
   end
 
+  def send_welcome_email
+    UserMailer.welcome(self).deliver_now
+  end
+
   def self.find_for_facebook_oauth(auth)
     user_params = auth.slice(:provider, :uid)
     user_params.merge! auth.info.slice(:email, :first_name, :last_name)
@@ -65,3 +70,4 @@ class User < ApplicationRecord
 
 end
 
+end

@@ -54,16 +54,19 @@ class TasksController < ApplicationController
     if @task.owner == current_user
       @status = params[:task][:task_status]
       if @status == "rejected"
+        TaskMailer.worker_reject_email(@task).deliver_now
         @task.status = "pending"
         @task.rejections << @task.worker.id
       else
         @task.status = @status
+        TaskMailer.worker_accept_email(@task).deliver_now
       end
       @task.save
       redirect_to task_path(@task, @payment)
     else
       @task.status = "accepted"
       @task.worker = current_user
+      TaskMailer.task_accepted_email(@task).deliver_now
       @task.save!
       redirect_to task_path(@task)
     end

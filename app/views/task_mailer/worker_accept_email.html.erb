@@ -1,0 +1,4 @@
+<h1>Your service for <%= @task.name %> was accepted</h1>
+
+<p><%= @task.owner.first_name %> <%= @task.owner.last_name %> accepted your service </p>
+<p><%= link_to "Check the Task", task_url(@task) %></p>
