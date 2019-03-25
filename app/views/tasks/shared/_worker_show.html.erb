@@ -15,10 +15,10 @@ body {
 
 
 <% if @task.status != "confirmed" %>
-  <script language="javascript">
+  <script data-turbolinks-eval="false" language="javascript">
   setInterval(function(){
-     window.location.reload(1);
-  }, 3000);
+    Turbolinks.visit(window.location.href)
+  }, 5000);
   </script>
 <% end %>
 
@@ -37,7 +37,7 @@ body {
       </div>
 
       <h2><%= @task.name %></h2>
-      <p>Owner: <%= @task.owner.first_name %></p>
+      <p>Owner: kkkkk  <%= @task.owner.first_name %></p>
       <p>Category: <%= @task.category %></p>
 
       <p>Address: <%= @task.address %></p>
