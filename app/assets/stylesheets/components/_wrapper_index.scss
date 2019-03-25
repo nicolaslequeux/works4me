@@ -25,6 +25,12 @@
   // height: 100%;
   // width: 100%;
 }
+.cards {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-gap: 16px;
+  padding: 20px;
+}
 .card_task {
 /*   width: 50%; */
   overflow: hidden;
@@ -67,15 +73,13 @@
 }
 
 
-.cards {
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  grid-gap: 16px;
-  padding: 20px;
-}
 
 // Smallest device
 @media (min-width: 100px) and (max-width: 575px) {
+  .left-half {
+    grid-template-columns: 1fr;
+    width: 100%;
+  }
   .cards {
     grid-template-columns: 1fr;
     width: 100%;
@@ -91,11 +95,14 @@
 
 // Small devices (landscape phones, 576px and up)
 @media (min-width: 576px) {
+  .left-half {
+    grid-template-columns: 1fr;
+    width: 100%;
+  }
   .cards {
     grid-template-columns: 1fr;
     width: 100%;
   }
-
   #map {
     display: none;
   }
@@ -106,6 +113,10 @@
 
 // Medium devices (tablets, 768px and up)
 @media (min-width: 768px) {
+  .left-half {
+    grid-template-columns: 1fr 1fr;
+    width: 100%;
+  }
   .cards {
     grid-template-columns: 1fr 1fr;
     width: 100%;
@@ -130,10 +141,12 @@
 
 // Extra large devices (large desktops, 1200px and up)
 @media (min-width: 1200px) {
+  .left-half {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
   .cards {
     grid-template-columns: 1fr 1fr 1fr;
   }
-
   #map {
     display: block;
   }
