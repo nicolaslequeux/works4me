@@ -58,6 +58,8 @@
   <% end %>
 </div>
 
+<br>
+
 <p>Average rating for <%= @user.first_name %> is <strong><%=rating_per_cent%> %</strong></p>
 
 <div class="progress">
@@ -65,6 +67,21 @@
 </div>
 
 <br>
+
+<hr>
+<p>List of tasks PENDING</p>
+<% Task.where(owner_user_id: @user, status: "pending").each do |task| %>
+  <p><%= task.status%></p>
+<% end %>
+
+<hr>
+<p>List of tasks ACCEPTED</p>
+<% Task.where(owner_user_id: @user, status: "accepted").each do |task| %>
+  <p><%= task.status%></p>
+<% end %>
+
+
+
 <!-- go back to the previous page if exists -->
 <%= link_to "back", (request.referer.present? ? request.referer : root_path), class: "btn btn-primary" %>
 <br>
