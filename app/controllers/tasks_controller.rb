@@ -55,6 +55,7 @@ class TasksController < ApplicationController
       @status = params[:task][:task_status]
       if @status == "rejected"
         @task.status = "pending"
+        @task.rejections << @task.worker.id
       else
         @task.status = @status
       end
