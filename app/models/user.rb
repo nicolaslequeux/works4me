@@ -1,4 +1,5 @@
 class User < ApplicationRecord
+  after_create :send_welcome_email
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
@@ -39,5 +40,9 @@ class User < ApplicationRecord
     User.find(Task.find(review.task_id).worker_user_id)
   end
 
-end
+  private
 
+  def send_welcome_email
+    UserMailer.welcome(self).deliver_now
+  end
+end
