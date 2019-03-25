@@ -103,13 +103,10 @@
   <% end %>
 
   <% if task.status == "accepted" && !task.worker_user_id.nil? %>
-
     <!-- PRINT REVIEWS FOR WORKER_ID   -->
     <% Review.where(user_id: task.worker_user_id).each do |review| %>
         <p>Rating of <%= review.rating %> for worker <%= User.find(review.user_id).first_name %> on <%= review.created_at.strftime("%d/%m/%Y - %-dh%d") %></p>
-
     <% end %>
-
   <% end %>
 
   <hr>
