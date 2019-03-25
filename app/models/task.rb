@@ -11,9 +11,4 @@ class Task < ApplicationRecord
   after_validation :geocode, if: :will_save_change_to_address?
 
   mount_uploader :picture, PhotoUploader
-
-  def self.all_categories
-    self.all.pluck(:category).sort.uniq
-  end
-
 end
