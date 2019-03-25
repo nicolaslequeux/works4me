@@ -58,6 +58,8 @@
   <% end %>
 </div>
 
+<br>
+
 <p>Average rating for <%= @user.first_name %> is <strong><%=rating_per_cent%> %</strong></p>
 
 <div class="progress">
@@ -65,6 +67,54 @@
 </div>
 
 <br>
+
+<hr>
+<!-- ####################################################################################### -->
+<h3>List of PENDING tasks, waiting for a worker</h3>
+
+<% Task.where(owner_user_id: @user, status: "pending").each do |task| %>
+
+  <hr>
+  <p>Name: <%=task.name%> for <%=humanized_money_with_symbol(task.price)%> - Status: <%= task.status%> for: <%= task.worker_user_id.nil? ? "not affected" : User.find(task.worker_user_id).first_name %></p>
+
+  <%= form_for [task], method: :patch do |f| %>
+    <%= f.hidden_field :task_status, value: "confirmed" %>
+    <%= f.submit "accept worker", class: "btn btn-success" %>
+    <%= f.hidden_field :task_status, value: "rejected" %>
+    <%= f.submit "reject worker", class: "btn btn-danger" %>
+  <% end %>
+
+<% end %>
+
+
+<hr>
+<!-- ####################################################################################### -->
+<h3>List of tasks ACCEPTED by a worker, needed TO BE VALIDATED by the owner</h3>
+
+<% Task.where(owner_user_id: @user, status: "accepted").each do |task| %>
+
+  <p>Name: <%=task.name%> for <%=humanized_money_with_symbol(task.price)%> - Status: <%= task.status%> by: <%= task.worker_user_id.nil? ? "not affected" : User.find(task.worker_user_id).first_name %></p>
+
+  <%= form_for [task], method: :patch do |f| %>
+    <%= f.hidden_field :task_status, value: "confirmed" %>
+    <%= f.submit "accept worker", class: "btn btn-success" %>
+    <%= f.hidden_field :task_status, value: "rejected" %>
+    <%= f.submit "reject worker", class: "btn btn-danger" %>
+  <% end %>
+
+  <% if task.status == "accepted" && !task.worker_user_id.nil? %>
+    <!-- PRINT REVIEWS FOR WORKER_ID   -->
+    <% Review.where(user_id: task.worker_user_id).each do |review| %>
+        <p>Rating of <%= review.rating %> for worker <%= User.find(review.user_id).first_name %> on <%= review.created_at.strftime("%d/%m/%Y - %-dh%d") %></p>
+    <% end %>
+  <% end %>
+
+  <hr>
+
+<% end %>
+
+
+
 <!-- go back to the previous page if exists -->
 <%= link_to "back", (request.referer.present? ? request.referer : root_path), class: "btn btn-primary" %>
 <br>
