@@ -41,7 +41,6 @@ class TasksController < ApplicationController
   def my_tasks
     @my_owner_tasks = Task.where(owner: current_user)
     @my_worker_tasks = Task.where(worker: current_user)
-    raise
   end
 
   private

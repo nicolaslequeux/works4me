@@ -8,6 +8,8 @@ Rails.application.routes.draw do
 
   get '/profile', to: 'pages#profile', as: 'profile'
 
+  get '/my_tasks', to: 'tasks#my_tasks', as: 'my_tasks'
+
   devise_for :users
 
   resources :tasks do
