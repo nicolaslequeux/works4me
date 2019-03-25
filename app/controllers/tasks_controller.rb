@@ -62,13 +62,13 @@ class TasksController < ApplicationController
         TaskMailer.worker_accept_email(@task).deliver_now
       end
       @task.save
-      redirect_to task_path(@task, @payment)
+      redirect_or_fallback(task_path(@task, @payment))
     else
       @task.status = "accepted"
       @task.worker = current_user
       TaskMailer.task_accepted_email(@task).deliver_now
       @task.save!
-      redirect_to task_path(@task)
+      redirect_or_fallback(task_path(@task))
     end
   end
 

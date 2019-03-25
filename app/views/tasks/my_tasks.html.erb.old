@@ -1,0 +1,28 @@
+<h2>My tasks (I am the owner)</h2>
+<% if @my_owner_tasks.empty? %>
+  <h3>No tasks found.</h3>
+<% else %>
+  <% @my_owner_tasks.each do |task| %>
+    <p>Task: <%= task.name %></p>
+    <p>Category: <%= task.category %></p>
+    <p>Description: <%= task.description %></p>
+    <p>Performed by: <%= task.worker.first_name %> <%= task.worker.last_name %></p>
+    <p>Status: <%= task.status %></p>
+    <hr>
+  <% end %>
+<% end %>
+
+<h2>My tasks (I am the worker)</h2>
+<% if @my_worker_tasks.empty? %>
+  <h3>No tasks found.</h3>
+<% else %>
+  <% @my_worker_tasks.each do |task| %>
+    <p>Task: <%= task.name %></p>
+    <p>Category: <%= task.category %></p>
+    <p>Description: <%= task.description %></p>
+    <p>Owned by: <%= task.owner.first_name %> <%= task.owner.last_name %></p>
+    <p>Status: <%= task.status %></p>
+    <hr>
+  <% end %>
+<% end %>
+
