@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  devise_for :users, controllers: { omniauth_callbacks: 'users/omniauth_callbacks' }
 
   root to: 'pages#home'
 
@@ -7,8 +8,6 @@ Rails.application.routes.draw do
   get '/contact', to: 'pages#contact', as: 'contact'
 
   get '/profile', to: 'pages#profile', as: 'profile'
-
-  devise_for :users
 
   resources :tasks do
     resources :reviews, only: [:new, :create]
