@@ -11,6 +11,20 @@
 
 
 
+<% if @task.status != "confirmed" %>
+  <script data-turbolinks-eval="false" language="javascript">
+  regex = /\/tasks\/\d/i;
+  setInterval(function(){
+
+    if (regex.test(window.location.pathname)) {
+      Turbolinks.visit(window.location.pathname)
+    }
+
+  }, 5000);
+  </script>
+<% end %>
+
+
 
 
 <!-- VIEW FOR PENDING & REJECTED-->
