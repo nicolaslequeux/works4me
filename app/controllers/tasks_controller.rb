@@ -2,14 +2,9 @@ class TasksController < ApplicationController
   skip_before_action :authenticate_user!, only: [:index, :show]
 
   def index
-    @tasks = Task.all
-    @tasks_mapped = Task.where.not(latitude: nil, longitude: nil)
-
-    if params[:category].present?
-      @tasks = @tasks.where("category ILIKE ?", "%#{params[:category]}%")
-      @tasks_mapped = @tasks_mapped.where("category ILIKE ?", "%#{params[:category]}%")
-    end
-
+    @tasks = filter_tasks
+    @tasks = Task.all if @tasks.empty? # POSSIBLY GET RID OF THIS
+    @tasks_mapped = @tasks.where.not(latitude: nil, longitude: nil)
     @markers = @tasks.map do |task|
       {
         lat: task.latitude,
@@ -43,6 +38,12 @@ class TasksController < ApplicationController
     update_task_status
   end
 
+  def my_tasks
+    @my_owner_tasks = Task.where(owner: current_user)
+    @my_worker_tasks = Task.where(worker: current_user)
+    raise
+  end
+
   private
 
   def task_params
@@ -66,5 +67,23 @@ class TasksController < ApplicationController
       @task.save!
       redirect_to task_path(@task)
     end
+  end
+
+  #Filters tasks based on search keyword and task category
+  def filter_tasks
+    tasks = Task.all
+    if params[:keyword].present? && params[:keyword] != "All"
+      tasks = Task.where("name @@ ? OR description @@ ?", "%#{params[:keyword]}%", "%#{params[:keyword]}%")
+    end
+
+    if params[:category].present? && params[:category] != "All"
+      tasks = tasks.where(category: params[:category])
+    end
+
+    # UNCOMMENT WHEN MORE SEEDS! --> NOT ENOUGH TASKS FOR TESTING RADIUS
+    # if params[:radius].present? && params[:radius] != "All"
+    #   tasks = tasks.near([current_user.latitude, current_user.longitude], params[:radius].to_i)
+    # end
+    return tasks
   end
 end
