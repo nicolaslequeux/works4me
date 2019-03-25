@@ -11,6 +11,15 @@
 
 
 
+<% if @task.status != "confirmed" %>
+  <script language="javascript">
+  setInterval(function(){
+     window.location.reload(1);
+  }, 3000);
+  </script>
+<% end %>
+
+
 
 
 <!-- VIEW FOR PENDING & REJECTED-->

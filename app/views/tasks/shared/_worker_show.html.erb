@@ -14,6 +14,16 @@ body {
 
 
 
+<% if @task.status != "confirmed" %>
+  <script language="javascript">
+  setInterval(function(){
+     window.location.reload(1);
+  }, 3000);
+  </script>
+<% end %>
+
+
+
 <% if @task.status == "pending"%>
 
 <!--   <%#= cl_image_tag @task.picture, height: 200, width: 200, crop: :fill %>
@@ -67,9 +77,9 @@ body {
 
   <div class="task-summary">
     <div class="task-summary-text">
-      <!-- <div class="task-summary-description">
+      <div class="task-summary-description">
         <p>Description: <%= @task.description %></p>
-      </div> -->
+      </div>
 
       <h2><%= @task.name %></h2>
       <p>Owner: <%= @task.owner.first_name %></p>
@@ -114,9 +124,9 @@ body {
 
   <div class="task-summary">
     <div class="task-summary-text">
-      <!-- <div class="task-summary-description">
+      <div class="task-summary-description">
         <p>Description: <%= @task.description %></p>
-      </div> -->
+      </div>
       <h1>All set, Task confirmed!</h1>
       <h2><%= @task.name %></h2>
       <p>Owner: <%= @task.owner.first_name %></p>
