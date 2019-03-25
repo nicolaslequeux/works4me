@@ -41,7 +41,6 @@ class TasksController < ApplicationController
   def my_tasks
     @my_owner_tasks = Task.where(owner: current_user)
     @my_worker_tasks = Task.where(worker: current_user)
-    raise
   end
 
   private
@@ -56,6 +55,7 @@ class TasksController < ApplicationController
       @status = params[:task][:task_status]
       if @status == "rejected"
         @task.status = "pending"
+        @task.rejections << @task.worker.id
       else
         @task.status = @status
       end

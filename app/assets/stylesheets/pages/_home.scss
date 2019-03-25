@@ -109,14 +109,14 @@ a{
   background-size: cover;
 }
 #east{
-  background: url("right-screen.jpg") no-repeat center top;
+  background: image-url("right-screen.jpg") no-repeat center top;
   background-size: cover;
 }
 #west .content{
   background: rgba(10,14,79, .4); //(25,235,248, .4) light blue
 }
 #east .content{
-  background: rgba(241,145,142, .4); //(239,220,114, .5) yellow
+  background: rgba(217, 252, 86, .4); //(239,220,114, .5) yellow, rgb(217, 252, 86) fluo, (241,145,142,) pinkish
 
 }
 /*-----------------*/

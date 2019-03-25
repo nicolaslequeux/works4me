@@ -9,6 +9,8 @@ gem 'puma'
 gem 'rails', '5.2.2'
 gem 'redis'
 
+gem 'turbolinks', '~> 5.2.0'
+
 gem 'money-rails'
 gem 'stripe'
 

@@ -1,7 +1,7 @@
 
 <style>
 .navbar-lewagon {
-  background: rgba(244,183,147, 1);  /*(10,14,79, 1)*/
+  background: rgba(185, 218, 69, 1);  /*(10,14,79, 1)*/
 
   width: 100%;
   }
@@ -58,7 +58,7 @@
         <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/greece.jpg">
         <div class="card_task_infos">
           <div>
-            <h2><%= link_to "#{task.name}",task_path(task.id) %></h2>
+            <h2><%= link_to "#{task.name}",task_path(task.id), :class => 'stretched-link' %></h2>
             <p>Status: <%= task.status %></p>
             <p>Owner: <%= task.owner.first_name %></p>
           </div>
@@ -86,12 +86,9 @@
 
 <script>
 
-
-
-
   // get element by id or class to find the button
-  const showmap = document.getElementById("map");
-  const cardgrid = document.getElementById("cardgrid");
+  var showmap = document.getElementById("map");
+  var cardgrid = document.getElementById("cardgrid");
 
   // add event listener for click to the button
   document.getElementById("button_map").addEventListener("click", (event) => {
