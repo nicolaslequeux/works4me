@@ -16,7 +16,7 @@
 
         <%= simple_form_for @task do |f| %>
             <%= f.input  :name, label: "What's the task?", error: "Name is mandatory, please specify one" %>
-            <%= f.input  :category %>
+            <%= f.input  :category, collection: ["Cleaning", "Computering", "Driving", "Ironing", "Moving", "Gardening", "Other"] %>
             <%= f.input  :description, label: "Describe the task:" %>
             <%= f.input  :address, label: "Put the address:" %>
             <%= f.input  :price, hint: 'Insert a price.' %>
