@@ -51,18 +51,23 @@ class TasksController < ApplicationController
 
   def update_task_status
     @task = Task.find(params[:id])
+
     if @task.owner == current_user
       @status = params[:task][:task_status]
+
       if @status == "rejected"
         TaskMailer.worker_reject_email(@task).deliver_now
         @task.status = "pending"
         @task.rejections << @task.worker.id
+      elsif @status == "canceled"
+        @task.status = "canceled"
       else
         @task.status = @status
         TaskMailer.worker_accept_email(@task).deliver_now
       end
       @task.save
       redirect_or_fallback(task_path(@task, @payment))
+
     else
       @task.status = "accepted"
       @task.worker = current_user
@@ -70,6 +75,7 @@ class TasksController < ApplicationController
       @task.save!
       redirect_or_fallback(task_path(@task))
     end
+
   end
 
   #Filters tasks based on search keyword and task category
