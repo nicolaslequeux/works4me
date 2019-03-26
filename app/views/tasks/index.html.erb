@@ -52,7 +52,8 @@
       </div>
     </section>
     <div class="cards" >
-      <% @tasks.each do |task| %>
+      <%# @tasks.reverse.each do |task| %>
+      <% @tasks.where.not(status: ["canceled", "finished"]).reverse.each do |task| %>
       <div class="card_task">
         <% if task.picture.present? %>
         <%= cl_image_tag task.picture, crop: :fill %>
@@ -64,6 +65,7 @@
             <h2><%= link_to "#{task.name}",task_path(task.id), :class => 'stretched-link' %></h2>
             <p>Status: <%= task.status %></p>
             <p>Owner: <%= task.owner.first_name %></p>
+            <p>Posted: <%= task.created_at.strftime("%d/%m/%y") %></p>
           </div>
           <h2 class="card_task_pricing"><%= humanized_money_with_symbol(task.price) %></h2>
           <%= cl_image_tag task.owner.avatar, {class: "card_task_user avatar-bordered"} %>
@@ -85,7 +87,7 @@
 </div>
 <script>
 // get element by id or class to find the button
-var showmap = document.getElementById("map");
+var showmap = document.getElementById("map");@
 var cardgrid = document.getElementById("cardgrid");
 // add event listener for click to the button
 document.getElementById("button_map").addEventListener("click", (event) => {
