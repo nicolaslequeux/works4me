@@ -1,6 +1,6 @@
-
 <style>
 .navbar-lewagon {
+
   background: rgba(237, 91, 92, 1);  /*(10,14,79, 1)*/
 
   width: 100%;
@@ -8,68 +8,57 @@
   .navbar-brand {
     color: white !important;
   }
+
 </style>
-
 <div class="wrapper_index">
-
-<div class="left-half" id="cardgrid">
-  <section class="search-sec">
-    <div class="container">
-       <form action="/tasks" method="get" novalidate="novalidate">
-            <div class="row">
-                <div class="col-lg-12">
-                    <div class="row">
-                        <div class="col-lg-3 col-md-3 col-sm-12 p-0">
-                            <input type="text" class="form-control search-slt" placeholder="keyword" name="keyword">
-                        </div>
-                        <div class="col-lg-3 col-md-3 col-sm-12 p-0">
-                            <select class="form-control search-slt" id="exampleFormControlSelect1" name="radius">
-                                <option value="" disabled selected>radius (km)</option>
-                                <option style="font-weight: bold;">All</option>
-                                <option>10</option>
-                                <option>50</option>
-                                <option>100</option>
-                            </select>
-                        </div>
-                        <div class="col-lg-3 col-md-3 col-sm-12 p-0">
-                            <select class="form-control search-slt" id="exampleFormControlSelect1" name="category">
-                                <option value="" disabled selected>category</option>
-                                <option style="font-weight: bold;">All</option>
-                                <option>Cleaning</option>
-                                <option>Computering</option>
-                                <option>Driving</option>
-                                <option>ironing</option>
-                                <option>Moving</option>
-                                <option>Gardening</option>
-                            </select>
-                        </div>
-                        <div class="col-lg-3 col-md-3 col-sm-12 p-0">
-                            <button type="sbumit" class="btn btn-success wrn-btn">Search</button>
-                        </div>
-                    </div>
+  <div class="left-half" id="cardgrid">
+    <section class="search-sec">
+      <div class="container">
+        <form action="/tasks" method="get" novalidate="novalidate">
+          <div class="row">
+            <div class="col-lg-12">
+              <div class="row">
+                <div class="col-lg-3 col-md-3 col-sm-12 p-0">
+                  <input type="text" class="form-control search-slt" placeholder="keyword" name="keyword">
                 </div>
+                <div class="col-lg-3 col-md-3 col-sm-12 p-0">
+                  <select class="form-control search-slt" id="exampleFormControlSelect1" name="radius">
+                    <option value="" disabled selected>radius (km)</option>
+                    <option style="font-weight: bold;">All</option>
+                    <option>10</option>
+                    <option>50</option>
+                    <option>100</option>
+                  </select>
+                </div>
+                <div class="col-lg-3 col-md-3 col-sm-12 p-0">
+                  <select class="form-control search-slt" id="exampleFormControlSelect1" name="category">
+                    <option value="" disabled selected>category</option>
+                    <option style="font-weight: bold;">All</option>
+                    <option>Cleaning</option>
+                    <option>Computering</option>
+                    <option>Driving</option>
+                    <option>ironing</option>
+                    <option>Moving</option>
+                    <option>Gardening</option>
+                  </select>
+                </div>
+                <div class="col-lg-3 col-md-3 col-sm-12 p-0">
+                  <button type="sbumit" class="btn btn-success wrn-btn">Search</button>
+                </div>
+              </div>
             </div>
+          </div>
         </form>
-    </div>
-  </section>
+      </div>
+    </section>
     <div class="cards" >
       <% @tasks.each do |task| %>
       <div class="card_task">
-        <!-- <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/greece.jpg"> -->
-
         <% if task.picture.present? %>
         <%= cl_image_tag task.picture, crop: :fill %>
-          <% else %>
-             <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg">
-          <% end %>
-
-
-
-
-
-
-
-
+        <% else %>
+        <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg">
+        <% end %>
         <div class="card_task_infos">
           <div>
             <h2><%= link_to "#{task.name}",task_path(task.id), :class => 'stretched-link' %></h2>
@@ -77,44 +66,36 @@
             <p>Owner: <%= task.owner.first_name %></p>
           </div>
           <h2 class="card_task_pricing"><%= humanized_money_with_symbol(task.price) %></h2>
-          <img src='https://kitt.lewagon.com/placeholder/users/krokrob' class="card_task_user avatar-bordered"/>
+          <%= cl_image_tag task.owner.avatar, {class: "card_task_user avatar-bordered"} %>
         </div>
       </div>
       <% end %>
     </div>
   </div>
-
   <div
-  id="map"
-  style="width: 800px;
-  height: 600px;"
-  data-markers="<%= @markers.to_json %>"
-  data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"
+    id="map"
+    style="width: 800px;
+    height: 600px;"
+    data-markers="<%= @markers.to_json %>"
+    data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"
   ></div>
-
 </div>
-
 <div class="button_positioning" id="button_map">
   <button type="button" class="btn btn-primary">Switch to map</button>
 </div>
-
 <script>
-
-  // get element by id or class to find the button
-  var showmap = document.getElementById("map");
-  var cardgrid = document.getElementById("cardgrid");
-
-  // add event listener for click to the button
-  document.getElementById("button_map").addEventListener("click", (event) => {
-    // showmap.style.display = "block";
-    showmap.classList.toggle("map_display");
-    cardgrid.classList.toggle("cards_hide");
-    window.mapbox.resize();
-    fitMapToMarkers(window.mapbox, window.markers);
-    // cardgrid.style.display = "none";
+// get element by id or class to find the button
+var showmap = document.getElementById("map");
+var cardgrid = document.getElementById("cardgrid");
+// add event listener for click to the button
+document.getElementById("button_map").addEventListener("click", (event) => {
+// showmap.style.display = "block";
+showmap.classList.toggle("map_display");
+cardgrid.classList.toggle("cards_hide");
+window.mapbox.resize();
+fitMapToMarkers(window.mapbox, window.markers);
+// cardgrid.style.display = "none";
 });
-  // add class with display none on the cards container
-
-  // add class display blovk to the map t make it full screen
+// add class with display none on the cards container
+// add class display blovk to the map t make it full screen
 </script>
-
