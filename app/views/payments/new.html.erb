@@ -14,33 +14,36 @@
 <div class="container">
   <div class="row justify-content-center">
     <div class="col-xs-12 col-sm-6 col-sm-offset-4">
-      <div class="form-log">
+      <div class="payment-container">
+        <div class="profile-page">
 
-        <h1>Purchase of task : <%= @task.name %></h1>
-        <%= form_tag task_payments_path(@task) do %>
-          <article>
-            <label class="amount">
-              <span>Amount: <%= humanized_money_with_symbol(@task.price) %></span>
-            </label>
-          </article>
+          <h2>Purchase of:</h2>
+          <h3><%= @task.name %></h3>
+          <%= form_tag task_payments_path(@task) do %>
+            <article>
+              <label class="payment-card">
+                <span>Amount: <%= humanized_money_with_symbol(@task.price) %></span>
+              </label>
+            </article>
 
-          <!-- # Commented for the lecture, remove comments. -->
-          <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
-            data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
-            data-name="<%= @task.name %>"
-            data-email="<%= current_user.email %>"
-            data-description="<%= @task.name %>"
-            data-amount="<%= @task.price_cents %>"
-            data-currency="<%= @task.price.currency %>"></script>
+            <!-- # Commented for the lecture, remove comments. -->
+            <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+              data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
+              data-name="<%= @task.name %>"
+              data-email="<%= current_user.email %>"
+              data-description="<%= @task.name %>"
+              data-amount="<%= @task.price_cents %>"
+              data-currency="<%= @task.price.currency %>"></script>
 
-        <% end %>
-
-
-
-
+          <% end %>
 
 
 
+
+
+
+
+        </div>
       </div>
     </div>
   </div>
