@@ -89,7 +89,10 @@
 
     <% Task.where(owner_user_id: @user, status: "finished").each do |task| %>
 
-      <li class="list-inline-item"><%=task.name%> for <%=humanized_money_with_symbol(task.price)%> accepted by <strong><%= task.worker_user_id.nil? ? "not affected" : User.find(task.worker_user_id).first_name.capitalize %> <%= User.find(task.worker_user_id).last_name.capitalize %></strong>
+      <li class="list-inline-item"><%=task.name%>
+        for <%=humanized_money_with_symbol(task.price)%>
+        <%= task.status %>
+        accepted by <strong><%= task.worker_user_id.nil? ? "not affected" : User.find(task.worker_user_id).first_name.capitalize %> <%= User.find(task.worker_user_id).last_name.capitalize %></strong>
       </li>
 
     <% end %>
