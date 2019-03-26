@@ -38,7 +38,7 @@
       <%= form_for [task], method: :patch do |f| %>
       <%= hidden_field_tag :redirect_to, my_tasks_path %>
       <%#= f.hidden_field :task_status, value: "confirmed" %>
-      <%= f.hidden_field :task_status, value: "in progress" %>
+      <%= f.hidden_field :task_status, value: "confirmed" %>
       <button type="submit" class="icone-green"><i class="fas fa-check-square"></i></button>
       <% end %>
     </li>
@@ -66,7 +66,7 @@
 
   <ul class="list-inline">
 
-    <% Task.where(owner_user_id: @user, status: "in progress").each do |task| %>
+    <% Task.where(owner_user_id: @user, status: "confirmed").each do |task| %>
 
       <li class="list-inline-item"><%=task.name%> for <%=humanized_money_with_symbol(task.price)%> accepted by <strong><%= task.worker_user_id.nil? ? "not affected" : User.find(task.worker_user_id).first_name.capitalize %> <%= User.find(task.worker_user_id).last_name.capitalize %></strong>
       </li>
