@@ -3,14 +3,14 @@
   background: rgba(237, 91, 92, 1); /*rgba(241,145,142, 1);*/
 
   width: 100%;
-  }
-  .navbar-brand {
-    color: white !important;
-  }
-  body {
-    background: #f4f4f4;
-    font-family: "Celias";
-  }
+}
+.navbar-brand {
+  color: white !important;
+}
+body {
+  background: #f4f4f4;
+  font-family: "Celias";
+}
 </style>
 
 
@@ -25,58 +25,86 @@
     }
 
   }, 8000);
-  </script>
+</script>
 <% end %>
 
 
+<div class="scene">
 
-<div class="card-showpage">
-  <div class="card-showpage-img">
-  <% if @task.picture.present? %>
+
+  <div class="card-showpage">
+    <div class="card__face card__face--front">
+
+
+      <div class="card-showpage-img">
+        <% if @task.picture.present? %>
         <%= cl_image_tag @task.picture, crop: :fill %>
-          <% else %>
-             <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/greece.jpg">
-          <% end %>
-  </div>
+        <% else %>
+        <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/greece.jpg">
+        <% end %>
+      </div>
 
-  <div class="card-showpage-content">
-    <div>
-      <h2><%= @task.name %></h2>
-      <p>Description: <%= @task.description %></p>
-      <h2><%= @task.owner.first_name %></h2>
-      <p>Bio: <%= @task.owner.bio %></p>
+      <div class="card-showpage-content">
+        <div>
+          <h2><%= @task.name %></h2>
+          <p>Description: <%= @task.description %></p>
+          <h2><%= @task.owner.first_name %></h2>
+          <p>Bio: <%= @task.owner.bio %></p>
+        </div>
+        <img src='https://kitt.lewagon.com/placeholder/users/krokrob' class="card-showpage-user avatar-xl"/>
+      </div>
+
+      <div class="card-showpage-infos">
+        <p>Address: <%= @task.address %></p>
+        <p>Status: <%= @task.status %></p>
+      </div>
+      <div class="card-showpage-infos" style="border-top:none">
+        <p>Price: <%= humanized_money_with_symbol(@task.price) %></p>
+        <p>Owner's rating: <%= @task.owner.average_rating_received %></p>
+      </div>
+
+
+      <% if @task.status == "pending"%>
+      <div class="card-showpage-button-accept">
+        <%= link_to "Accept", task_path(@task), method: :patch %>
+      </div>
+
+      <% elsif @task.status == "accepted"%>
+      <div class="card-showpage-button-refresh">
+        <%= link_to "Waiting for confirmation", task_path(@task) %>
+      </div>
+
+      <% elsif @task.status == "confirmed"%>
+      <div class="card-showpage-button-confirmed">
+        <%= link_to "Home", root_path %>
+      </div>
+      <% end %>
+
+      <div class="card-showpage-button-back">
+        <%= link_to "Back to index", tasks_path %>
+      </div>
     </div>
-    <img src='https://kitt.lewagon.com/placeholder/users/krokrob' class="card-showpage-user avatar-xl"/>
-  </div>
-
-  <div class="card-showpage-infos">
-      <p>Address: <%= @task.address %></p>
-      <p>Status: <%= @task.status %></p>
-  </div>
-  <div class="card-showpage-infos" style="border-top:none">
-      <p>Price: <%= humanized_money_with_symbol(@task.price) %></p>
-      <p>Owner's rating: <%= @task.owner.average_rating_received %></p>
-  </div>
 
 
-<% if @task.status == "pending"%>
-  <div class="card-showpage-button-accept">
-    <h2><%= link_to "Accept", task_path(@task), method: :patch %></h2>
-  </div>
+<div class="card__face card__face--back">
+  <div
+  id="map"
+  style="width: 100%;
+  height: 700px; display: block; border-radius: 15px; object-fit: cover"
+  data-markers="<%= @markers.to_json %>"
+  data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"
+  ></div>
+</div>
 
-<% elsif @task.status == "accepted"%>
-    <div class="card-showpage-button-refresh">
-    <h2><%= link_to "Refresh", task_path(@task) %></h2>
-  </div>
-
-<% elsif @task.status == "confirmed"%>
-  <div class="card-showpage-button-confirmed">
-    <h2><%= link_to "Home", root_path %></h2>
-  </div>
-<% end %>
-
-  <div class="card-showpage-button-back">
-    <h2><%= link_to "Back to index", tasks_path %></h2>
   </div>
 </div>
 
+<script>
+  var card = document.querySelector('.card-showpage');
+  card.addEventListener( 'click', function() {
+    card.classList.toggle('is-flipped');
+  });
+</script>
+
+
+</div>
