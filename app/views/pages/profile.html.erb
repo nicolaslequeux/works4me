@@ -7,29 +7,36 @@
   .navbar-brand {
     color: white !important;
   }
+
+strong {
+  font-family: "Celias";
+}
 </style>
+
+
 <div class="profile-container">
   <div class="profile-page">
 
+    <div class="top-title-profile">
+      <% rating = current_user.average_rating_received_from_user_view %>
+      <% rating_per_cent = 100 * rating / 5 %>
+      <% rating.nan? ? rating_per_cent = 0 : rating_per_cent = 100 * rating / 5 %>
 
-    <% rating = current_user.average_rating_received_from_user_view %>
-    <% rating_per_cent = 100 * rating / 5 %>
-    <% rating.nan? ? rating_per_cent = 0 : rating_per_cent = 100 * rating / 5 %>
+      <% if current_user.avatar.present? %>
+        <%= cl_image_tag current_user.avatar, height: 150, width: 150, crop: :fill %>
+      <% else %>
+        <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg", height="150", width="150", crop="fill">
+      <% end %>
+    </div>
 
-    <% if current_user.avatar.present? %>
-      <%= cl_image_tag current_user.avatar, height: 150, width: 150, crop: :fill %>
-    <% else %>
-      <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg", height="150", width="150", crop="fill">
-    <% end %>
-
-    <hr>
-
-    <p><%= @user.first_name %> <%= @user.last_name %></p>
-    <p><%= @user.address %></p>
-    <p>Phone: <%= @user.phone_number %></p>
-    <p>Email: <%= @user.email %></p>
-    <p>Bio: <%= current_user.bio %></p>
-    <p>Average rating for <%= @user.first_name.capitalize %> is <strong><%=rating_per_cent%> %</strong></p>
+    <div class="profile-infos">
+      <h4>Name: </h4><p><%= @user.first_name %> <%= @user.last_name %></p>
+      <h4>Address: </h4><p><%= @user.address %></p>
+      <h4>Phone: </h4><p><%= @user.phone_number %></p>
+      <h4>Email: </h4><p><%= @user.email %></p>
+      <h4>Bio: </h4><p><%= current_user.bio %></p>
+      <h4>Average rating for <%= @user.first_name.capitalize %> is <strong><%=rating_per_cent%> %</strong></h4>
+    </div>
 
     <div class="progress">
       <div class="progress-bar bg-success" role="progressbar" style="width: <%= rating_per_cent %>%;" aria-valuenow="<%= rating_per_cent %>" aria-valuemin="0" aria-valuemax="100">Rating <%= rating_per_cent %>%</div>
