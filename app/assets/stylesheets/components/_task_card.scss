@@ -24,6 +24,15 @@
   right: 5vw;
 }
 
+.card_task_user {
+  position: absolute;
+  right: 16px;
+  top: -20px;
+  width: 40px;
+  height: 40px;
+  flex-grow: 1;
+}
+
 .task-summary {
   padding: 1vh;
   width: 45vw;
@@ -81,7 +90,8 @@
 
 
 .payment-card {
-  background: white;
+  width: 80%;
+  background: rgba(0,0,0,0.1);
   padding: 10px 20px;
   margin-top: 50px;
   border-radius: 10px;

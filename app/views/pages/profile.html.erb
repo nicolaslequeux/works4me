@@ -7,7 +7,13 @@
   .navbar-brand {
     color: white !important;
   }
+
+strong {
+  font-family: "Celias";
+}
 </style>
+
+
 <div class="profile-container">
   <div class="profile-page">
 
@@ -21,13 +27,14 @@
     <% end %>
 
     <hr>
-
-    <p><%= @user.first_name %> <%= @user.last_name %></p>
-    <p><%= @user.address %></p>
-    <p>Phone: <%= @user.phone_number %></p>
-    <p>Email: <%= @user.email %></p>
-    <p>Bio: <%= current_user.bio %></p>
-    <p>Average rating for <%= @user.first_name.capitalize %> is <strong><%=rating_per_cent%> %</strong></p>
+    <div class="profile-infos">
+      <h4>Name: </h4><p><%= @user.first_name %> <%= @user.last_name %></p>
+      <h4>Address: </h4><p><%= @user.address %></p>
+      <h4>Phone: </h4><p><%= @user.phone_number %></p>
+      <h4>Email: </h4><p><%= @user.email %></p>
+      <h4>Bio: </h4><p><%= current_user.bio %></p>
+      <h4>Average rating for <%= @user.first_name.capitalize %> is <strong><%=rating_per_cent%> %</strong></h4>
+    </div>
 
     <div class="progress">
       <div class="progress-bar bg-success" role="progressbar" style="width: <%= rating_per_cent %>%;" aria-valuenow="<%= rating_per_cent %>" aria-valuemin="0" aria-valuemax="100">Rating <%= rating_per_cent %>%</div>
