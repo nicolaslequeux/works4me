@@ -51,7 +51,6 @@ color: white !important;
     <div class="cards" >
       <% @tasks.each do |task| %>
       <div class="card_task">
-        <!-- <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/greece.jpg"> -->
         <% if task.picture.present? %>
         <%= cl_image_tag task.picture, crop: :fill %>
         <% else %>
@@ -64,8 +63,7 @@ color: white !important;
             <p>Owner: <%= task.owner.first_name %></p>
           </div>
           <h2 class="card_task_pricing"><%= humanized_money_with_symbol(task.price) %></h2>
-          <%= cl_image_tag task.owner.avatar %>
-<!--           <img src='https://kitt.lewagon.com/placeholder/users/krokrob' class="card_task_user avatar-bordered"/> -->
+          <%= cl_image_tag task.owner.avatar, {class: "card_task_user avatar-bordered"} %>
         </div>
       </div>
       <% end %>
