@@ -1,5 +1,9 @@
 <div class="card_task_map">
-  <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/greece.jpg">
+  <% if task.picture.present? %>
+    <%= cl_image_tag task.picture, crop: :fill %>
+  <% else %>
+    <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg">
+  <% end %>
   <div class="card_task_infos_map">
     <div>
       <h2><%= link_to "#{task.name}",task_path(task.id) %></h2>
@@ -8,6 +12,6 @@
       <p>Owner: <%= task.owner.first_name %></p>
     </div>
     <h2 class="card_task_pricing_map"><%= humanized_money_with_symbol(task.price) %></h2>
-    <img src='https://kitt.lewagon.com/placeholder/users/krokrob' class="card_task_user_map avatar-xl"/>
+    <%= cl_image_tag task.owner.avatar, {class: "card_task_user_map avatar-xl"} %>
   </div>
 </div>
