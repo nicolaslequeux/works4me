@@ -8,3 +8,32 @@
   color: white;
   font-weight: bold;
 }
+
+.aside-btn {
+  padding: 10%;
+  display: flex;
+  justify-content: space-between;
+
+  .btn-success {
+    width: 20vw;
+    background-color: rgb(31, 173, 78);
+    color: white;
+    font-family: "Celias";
+    border: none;
+    border-radius: 10px;
+  }
+
+  .btn-danger {
+    width: 20vw;
+    background-color: rgb(237, 91, 92);
+    color: white;
+    font-family: "Celias";
+    border: none;
+    border-radius: 10px;
+  }
+}
+
+.waiting-page-last {
+  padding: 10%;
+}
+
