@@ -20,7 +20,7 @@
       Turbolinks.visit(window.location.pathname)
     }
 
-  }, 5000);
+  }, 8000);
   </script>
 <% end %>
 
@@ -37,27 +37,42 @@
             <h3><%= @task.name %></h3>
             <%#= @payment.amount_cents %>
             <h2>Waiting for someone to pick up your task...</h1>
+              <div class="load-progress-bar">
+                <span class="load-bar">
+                  <span class="load-progress"></span>
+                </span>
+              </div>
 
 
           <!-- VIEW FOR ACCCEPTED -->
           <% elsif @task.status == "accepted" %>
-            <h2>Your task has been accepted by <%= @task.worker.first_name %> <%= @task.worker.last_name %>!</h2>
+          <div class="waiting-page">
+            <h2>Your task has been accepted by <%= @task.worker.first_name.capitalize %> <%= @task.worker.last_name.capitalize %>!</h2>
 
-            <%= form_for [@task], method: :patch do |f| %>
-              <%= f.hidden_field :task_status, value: "confirmed" %>
-              <%= f.submit "accept worker", class: "btn btn-success" %>
-            <% end %>
+            <div class="aside-btn">
+              <%= form_for [@task], method: :patch do |f| %>
+                <%= f.hidden_field :task_status, value: "confirmed" %>
+                <%= f.submit "Accept", class: "btn btn-success" %>
+              <% end %>
 
-            <%= form_for [@task], method: :patch do |f| %>
-              <%= f.hidden_field :task_status, value: "rejected" %>
-              <%= f.submit "reject worker", class: "btn btn-danger" %>
-            <% end %>
+              <%= form_for [@task], method: :patch do |f| %>
+                <%= f.hidden_field :task_status, value: "rejected" %>
+                <%= f.submit "Decline", class: "btn btn-danger" %>
+              <% end %>
+            </div>
+          </div>
 
             <!-- VIEW FOR CONFIRMED -->
           <% elsif @task.status == "confirmed" %>
-            <p>Done, <%= @task.worker.first_name %> is on his way to you</p>
-            <%= link_to "Home Page", root_path, class: "btn btn-success" %>
-          <% end %>
+          <div class="waiting-page">
+              <h2>No more worries <%= @task.owner.first_name.capitalize %></h2>
+                <h2><%= @task.worker.first_name.capitalize %> is on his way to you</h2>
+
+            <div class="aside-btn">
+              <%= link_to "Back Home", root_path, class: "btn btn-success" %>
+            <% end %>
+            </div>
+          </div>
 
         </div>
       </div>
