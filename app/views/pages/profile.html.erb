@@ -1,63 +1,76 @@
-<div class="profile-page">
+<style>
+.navbar-lewagon {
+  background: rgba(22, 35, 58, 1);
 
-  <% rating = current_user.average_rating_received_from_user_view %>
-  <% rating_per_cent = 100 * rating / 5 %>
-  <% rating.nan? ? rating_per_cent = 0 : rating_per_cent = 100 * rating / 5 %>
+  width: 100%;
+  }
+  .navbar-brand {
+    color: white !important;
+  }
+</style>
+<div class="profile-container">
+  <div class="profile-page">
 
-  <% if current_user.avatar.present? %>
-    <%= cl_image_tag current_user.avatar, height: 150, width: 150, crop: :fill %>
-  <% else %>
-    <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg", height="150", width="150", crop="fill">
-  <% end %>
 
-  <hr>
+    <% rating = current_user.average_rating_received_from_user_view %>
+    <% rating_per_cent = 100 * rating / 5 %>
+    <% rating.nan? ? rating_per_cent = 0 : rating_per_cent = 100 * rating / 5 %>
 
-  <p><%= @user.first_name %> <%= @user.last_name %></p>
-  <p><%= @user.address %></p>
-  <p>Phone: <%= @user.phone_number %></p>
-  <p>Email: <%= @user.email %></p>
-  <p>Bio: <%= current_user.bio %></p>
-  <p>Average rating for <%= @user.first_name.capitalize %> is <strong><%=rating_per_cent%> %</strong></p>
-
-  <div class="progress">
-    <div class="progress-bar bg-success" role="progressbar" style="width: <%= rating_per_cent %>%;" aria-valuenow="<%= rating_per_cent %>" aria-valuemin="0" aria-valuemax="100">Rating <%= rating_per_cent %>%</div>
-  </div>
-
-  <hr>
-
-  <strong> Reviews received by <%= @user.first_name %> <%= @user.last_name %></strong>
-  <hr>
-  <div class="container">
-    <div class="row">
-      <div class="col">
-        <strong>Worker</strong>
-      </div>
-      <div class="col">
-        <strong>Review date</strong>
-      </div>
-      <div class="col">
-        <strong>Rating</strong>
-      </div>
-    </div>
-
-    <% @user.reviews.each do |review| %>
-    <div class="row">
-      <div class="col">
-        <%= User.find_worker_by_task(review).first_name.capitalize %>
-      </div>
-      <div class="col">
-        on <%= review.created_at.strftime("%d/%m/%Y") %>
-      </div>
-      <div class="col">
-        <%= review.rating %>/5
-      </div>
-    </div>
+    <% if current_user.avatar.present? %>
+      <%= cl_image_tag current_user.avatar, height: 150, width: 150, crop: :fill %>
+    <% else %>
+      <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg", height="150", width="150", crop="fill">
     <% end %>
+
+    <hr>
+
+    <p><%= @user.first_name %> <%= @user.last_name %></p>
+    <p><%= @user.address %></p>
+    <p>Phone: <%= @user.phone_number %></p>
+    <p>Email: <%= @user.email %></p>
+    <p>Bio: <%= current_user.bio %></p>
+    <p>Average rating for <%= @user.first_name.capitalize %> is <strong><%=rating_per_cent%> %</strong></p>
+
+    <div class="progress">
+      <div class="progress-bar bg-success" role="progressbar" style="width: <%= rating_per_cent %>%;" aria-valuenow="<%= rating_per_cent %>" aria-valuemin="0" aria-valuemax="100">Rating <%= rating_per_cent %>%</div>
+    </div>
+
+    <hr>
+
+    <strong> Reviews received by <%= @user.first_name %> <%= @user.last_name %></strong>
+    <hr>
+    <div class="container">
+      <div class="row">
+        <div class="col">
+          <strong>Worker</strong>
+        </div>
+        <div class="col">
+          <strong>Review date</strong>
+        </div>
+        <div class="col">
+          <strong>Rating</strong>
+        </div>
+      </div>
+
+      <% @user.reviews.each do |review| %>
+      <div class="row">
+        <div class="col">
+          <%= User.find_worker_by_task(review).first_name.capitalize %>
+        </div>
+        <div class="col">
+          on <%= review.created_at.strftime("%d/%m/%Y") %>
+        </div>
+        <div class="col">
+          <%= review.rating %>/5
+        </div>
+      </div>
+      <% end %>
+    </div>
+
+    <br>
+    <!-- go back to the previous page if exists -->
+    <%= link_to "back", (request.referer.present? ? request.referer : root_path), class: "btn btn-primary" %>
+    <br>
+
   </div>
-
-  <br>
-  <!-- go back to the previous page if exists -->
-  <%= link_to "back", (request.referer.present? ? request.referer : root_path), class: "btn btn-primary" %>
-  <br>
-
 </div>
