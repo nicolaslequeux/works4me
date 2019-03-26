@@ -1,6 +1,6 @@
 <style>
 .navbar-lewagon {
-  background: rgba(10,14,79, 1);
+  background: rgba(22, 35, 58, 1);
 
   width: 100%;
   }
@@ -19,30 +19,34 @@
 
           <h2>Purchase of:</h2>
           <h3><%= @task.name %></h3>
-          <%= form_tag task_payments_path(@task) do %>
-            <article>
-              <label class="payment-card">
-                <span>Amount: <%= humanized_money_with_symbol(@task.price) %></span>
-              </label>
-            </article>
+          <div class="profile-infos">
+            <h4>Category: </h4><p><%= @task.category %></p>
+            <h4>Description: </h4><p><%= @task.description %></p>
+            <h4>Address: </h4><p><%= @task.address %></p>
+            <%= form_tag task_payments_path(@task) do %>
+              <article>
+                <label class="payment-card">
+                  <span>Amount Due: <%= humanized_money_with_symbol(@task.price) %></span>
+                </label>
+              </article>
 
-            <!-- # Commented for the lecture, remove comments. -->
-            <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
-              data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
-              data-name="<%= @task.name %>"
-              data-email="<%= current_user.email %>"
-              data-description="<%= @task.name %>"
-              data-amount="<%= @task.price_cents %>"
-              data-currency="<%= @task.price.currency %>"></script>
+              <!-- # Commented for the lecture, remove comments. -->
+              <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+                data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
+                data-name="<%= @task.name %>"
+                data-email="<%= current_user.email %>"
+                data-description="<%= @task.name %>"
+                data-amount="<%= @task.price_cents %>"
+                data-currency="<%= @task.price.currency %>"></script>
 
-          <% end %>
-
-
+            <% end %>
 
 
 
 
 
+
+          </div>
         </div>
       </div>
     </div>
