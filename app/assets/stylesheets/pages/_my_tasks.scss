@@ -3,6 +3,14 @@
   width: 100%;
   max-width: 600px;
   margin: auto;
+  margin-bottom: 8vh;
+  .btn-primary {
+    width: 100%;
+    border-radius: 0 0 10px 10px;
+    background-color: rgb(24, 35, 56);
+    border: none;
+    padding: 3vh;
+  }
 }
 
 .icone-red {
@@ -22,3 +30,94 @@
   background-color: transparent;
   border: none;
 }
+
+.list-inline-item {
+  text-align: left;
+  font-family: "Celias";
+  padding-left: 10%;
+  padding-right: 10%;
+  padding-top: 3%;
+}
+
+.list-inline {
+  text-align: left;
+}
+
+.top-title {
+  color: white;
+  background-color: rgb(24, 35, 56);
+  border-radius: 10px 10px 0 0;
+  height: 15vh;
+  h3 {
+    padding: 6%;
+  }
+
+}
+
+.my-tasks-page {
+  font-family: "Celias";
+  width: 100%;
+  max-width: 600px;
+  // margin-top: 15vh;
+  margin: auto;
+  vertical-align: middle;
+  text-align: center;
+  background-color: white;
+  border-radius: 10px;
+  // box-shadow: 1px 1px 2px rgba(0,0,0,0.1);
+  // padding-top: 8vh;
+}
+
+
+.my-task-content {
+  margin-top: 8vh;
+  color: #182338;
+}
+
+
+.tasks-confirmed {
+  background: rgba(237, 91, 92, 1);
+  color: white;
+  height: 15vh;
+  h3 {
+    padding: 6%;
+  }
+}
+
+.tasks-progress {
+  background-color: rgb(31, 173, 78);
+  color: white;
+  height: 15vh;
+  h3 {
+    padding: 6%;
+  }
+}
+
+.task-completed {
+  background-color: rgb(24, 35, 56);
+  color: white;
+  height: 15vh;
+  border-radius: 0 0 0 0;
+  h3 {
+    padding: 6%;
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
