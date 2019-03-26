@@ -17,18 +17,18 @@ strong {
 <div class="profile-container">
   <div class="profile-page">
 
+    <div class="top-title-profile">
+      <% rating = current_user.average_rating_received_from_user_view %>
+      <% rating_per_cent = 100 * rating / 5 %>
+      <% rating.nan? ? rating_per_cent = 0 : rating_per_cent = 100 * rating / 5 %>
 
-    <% rating = current_user.average_rating_received_from_user_view %>
-    <% rating_per_cent = 100 * rating / 5 %>
-    <% rating.nan? ? rating_per_cent = 0 : rating_per_cent = 100 * rating / 5 %>
+      <% if current_user.avatar.present? %>
+        <%= cl_image_tag current_user.avatar, height: 150, width: 150, crop: :fill %>
+      <% else %>
+        <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg", height="150", width="150", crop="fill">
+      <% end %>
+    </div>
 
-    <% if current_user.avatar.present? %>
-      <%= cl_image_tag current_user.avatar, height: 150, width: 150, crop: :fill %>
-    <% else %>
-      <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg", height="150", width="150", crop="fill">
-    <% end %>
-
-    <hr>
     <div class="profile-infos">
       <h4>Name: </h4><p><%= @user.first_name %> <%= @user.last_name %></p>
       <h4>Address: </h4><p><%= @user.address %></p>
