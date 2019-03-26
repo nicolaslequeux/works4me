@@ -38,13 +38,6 @@
     <button type="submit"><i class="fas fa-user-slash"></i></button>
     <% end %>
   </li>
-  <li class="list-inline-item">
-    <%= form_for [task], method: :patch do |f| %>
-    <%= hidden_field_tag :redirect_to, my_tasks_path %>
-    <%= f.hidden_field :task_status, value: "canceled" %>
-    <button type="submit"><i class="fas fa-trash"></i></button>
-    <% end %>
-  </li>
 
 <!-- NOTE USE FOR THE MOMENT, BUT RETRIEVE RATING FOR A WORKER  -->
   <% if task.status == "accepted" && !task.worker_user_id.nil? %>
