@@ -1,0 +1,146 @@
+<% if @task.status == "pending"%>
+
+<!--   <%#= cl_image_tag @task.picture, height: 200, width: 200, crop: :fill %>
+ -->
+<div class="container-show">
+
+  <div class="task-summary">
+    <div class="task-summary-text">
+      <div class="task-summary-description">
+        <p>Description: <%= @task.description %></p>
+      </div>
+
+      <h2><%= @task.name %></h2>
+      <p>Owner: kkkkk  <%= @task.owner.first_name %></p>
+      <p>Category: <%= @task.category %></p>
+
+      <p>Address: <%= @task.address %></p>
+      <p>Price: <%= @task.price.round(2) %></p>
+      <p>Status: <%= @task.status %></p>
+      <p>Average rating for owner: <%= @task.owner.average_rating_received %></p>
+      <% if @task.rejections.include?(current_user.id) %>
+        <h3>Sorry, <%= @task.owner.first_name %> has rejected your offer</h3>
+        <%= link_to "Apply anyway", task_path(@task), method: :patch, class: "btn btn-success btn-lg" %>
+      <% else %>
+        <%= link_to "Accept the task", task_path(@task), method: :patch, class: "btn btn-success btn-lg" %>
+      <% end %>
+    </div>
+  </div>
+
+  <img src='https://kitt.lewagon.com/placeholder/users/krokrob' class="user-avatar"/>
+
+
+  <div class="map-box">
+    <div id="map" style="max-height: 100%; border-radius: 3px;"
+        data-markers="<%= @markers.to_json %>"
+        data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"
+        ></div>
+
+  </div>
+
+  <img src="https://visme.co/blog/wp-content/uploads/2017/07/50-Beautiful-and-Minimalist-Presentation-Backgrounds-037.jpg" class="card-background">
+  <div class="task-infos">
+    <div>
+      <h2>Bio</h2>
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+      <%= link_to "Back to index", tasks_path, class: "btn btn-warning" %>
+    </div>
+  </div>
+</div>
+
+
+
+<% elsif @task.status == "accepted"%>
+
+<div class="container-show">
+
+  <div class="task-summary">
+    <div class="task-summary-text">
+      <div class="task-summary-description">
+        <p>Description: <%= @task.description %></p>
+      </div>
+
+      <h2><%= @task.name %></h2>
+      <p>Owner: <%= @task.owner.first_name %></p>
+      <p>Category: <%= @task.category %></p>
+
+      <p>Address: <%= @task.address %></p>
+      <p>Price: <%= @task.price.round(2) %></p>
+      <p>Status: <%= @task.status %></p>
+      <p>Average rating for owner: <%= @task.owner.average_rating_received %></p>
+      <%= link_to "Refresh", task_path(@task), class: "btn btn-warning btn-lg" %>
+    </div>
+  </div>
+
+  <img src='https://kitt.lewagon.com/placeholder/users/krokrob' class="user-avatar"/>
+
+
+  <div class="map-box">
+    <div id="map" style="max-height: 100%; border-radius: 3px;"
+        data-markers="<%= @markers.to_json %>"
+        data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"
+        ></div>
+
+  </div>
+
+  <img src="https://visme.co/blog/wp-content/uploads/2017/07/50-Beautiful-and-Minimalist-Presentation-Backgrounds-037.jpg" class="card-background">
+  <div class="task-infos">
+    <div>
+      <h2>Bio</h2>
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+      <%= link_to "Back to index", tasks_path, class: "btn btn-warning" %>
+    </div>
+  </div>
+</div>
+
+
+  <%#= cl_image_tag @task.picture, height: 200, width: 200, crop: :fill %>
+
+
+<% elsif @task.status == "confirmed"%>
+
+<div class="container-show">
+
+  <div class="task-summary">
+    <div class="task-summary-text">
+      <div class="task-summary-description">
+        <p>Description: <%= @task.description %></p>
+      </div>
+      <h1>All set, Task confirmed!</h1>
+      <h2><%= @task.name %></h2>
+      <p>Owner: <%= @task.owner.first_name %></p>
+      <p>Category: <%= @task.category %></p>
+
+      <p>Address: <%= @task.address %></p>
+      <p>Price: <%= @task.price.round(2) %></p>
+      <p>Status: <%= @task.status %></p>
+      <p>Average rating for owner: <%= @task.owner.average_rating_received %></p>
+      <%= link_to "Home", root_path, class: "btn btn-success btn-lg" %>
+    </div>
+  </div>
+
+  <img src='https://kitt.lewagon.com/placeholder/users/krokrob' class="user-avatar"/>
+
+
+  <div class="map-box">
+    <div id="map" style="max-height: 100%; border-radius: 3px;"
+        data-markers="<%= @markers.to_json %>"
+        data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"
+        ></div>
+
+  </div>
+
+  <img src="https://visme.co/blog/wp-content/uploads/2017/07/50-Beautiful-and-Minimalist-Presentation-Backgrounds-037.jpg" class="card-background">
+  <div class="task-infos">
+    <div>
+      <h2>Bio</h2>
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+      <%#= link_to "Back to index", tasks_path, class: "btn btn-warning" %>
+    </div>
+  </div>
+</div>
+
+  <%#= cl_image_tag @task.picture, height: 200, width: 200, crop: :fill %>
+
+
+<% end %>

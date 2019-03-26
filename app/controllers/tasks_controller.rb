@@ -19,6 +19,14 @@ class TasksController < ApplicationController
   def show
     @task = Task.find(params[:id])
     @payment = @task.payment
+    @markers = [@task].map do |task|
+      {
+        lat: task.latitude,
+        lng: task.longitude,
+        infoWindow: render_to_string(partial: "infowindow", locals: { task: task }),
+        image_url: helpers.asset_url('https://picsum.photos/300/300/?random')
+      }
+    end
   end
 
   def new
