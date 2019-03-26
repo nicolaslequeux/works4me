@@ -12,6 +12,10 @@
 //   min-height:100%;
 // }
 
+body {
+  font-family: "Celias";
+}
+
 i {
   margin-bottom: 2vh;
 }
@@ -68,6 +72,7 @@ i {
 
 .grid .column h2 span {
   display: block;
+  font-family: "Celias";
   font-weight: 800;
   font-size: 2.8rem;
 }
@@ -102,7 +107,7 @@ a{
   text-decoration: none;
   color: #FFF;
   display: block;
-  font-family: sans-serif;
+  font-family: "Celias";
 }
 #west{
   background: url(http://www.hotel-r.net/im/hotel/asia/th/chilling-home-6.jpg) no-repeat top center;
@@ -116,7 +121,7 @@ a{
   background: rgba(10,14,79, .4); //(25,235,248, .4) light blue
 }
 #east .content{
-  background: rgba(217, 252, 86, .4); //(239,220,114, .5) yellow, rgb(217, 252, 86) fluo, (241,145,142,) pinkish
+  background: rgba(237, 91, 92, .3); //(239,220,114, .5) yellow, rgb(217, 252, 86) fluo, (241,145,142,) pinkish
 
 }
 /*-----------------*/

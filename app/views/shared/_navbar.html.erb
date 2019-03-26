@@ -1,6 +1,7 @@
 <div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
   <%= link_to root_path, class: "navbar-brand" do %>
-    <%= image_tag "https://vectr.com/tmp/a3hNd12XA6/b1TdWiwIT0.svg?width=447.21264367816116&height=86.20689655172416&select=edBap2YJr&source=selection" %>
+    <%#= image_tag "https://vectr.com/tmp/a3hNd12XA6/b1TdWiwIT0.svg?width=447.21264367816116&height=86.20689655172416&select=edBap2YJr&source=selection" %>
+    <h1>Works4Me.</h1>
 
     <% end %>
 
@@ -13,25 +14,27 @@
       <% if user_signed_in? %>
 
         <li class="nav-item active">
+          <%= link_to "My Tasks", my_tasks_path, class: "nav-link" %>
+        </li>
+
+        <li class="nav-item active">
+          <%= link_to "Profile", profile_path, class: "nav-link" %>
+        </li>
+
+        <li class="nav-item active">
           <%= link_to "About", root_path, class: "nav-link" %>
         </li>
-        <li class="nav-item active">
+<!--         <li class="nav-item active">
           <%= link_to "Faq", root_path, class: "nav-link" %>
         </li>
         <li class="nav-item active">
           <%= link_to "Contacts", root_path, class: "nav-link" %>
-        </li>
-        <li class="nav-item active">
-          <%= link_to "Profile", root_path, class: "nav-link" %>
-        </li>
+        </li> -->
+
          <% unless current_user.nil? %>
         <li class="nav-item active nav-link">
           <%= current_user.first_name %>
         <% end %>
-        </li>
-
-         <li class="nav-item">
-          <%= link_to "My Tasks", my_tasks_path, class: "nav-link" %>
         </li>
 
         <li class="nav-item dropdown">
@@ -47,8 +50,6 @@
           <% end %>
 
           <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-            <%#= link_to "Action", "#", class: "dropdown-item" %>
-            <%= link_to "My tasks", my_tasks_path, class: "dropdown-item" %>
             <%= link_to "Edit profile", edit_user_registration_path, class: "dropdown-item" %>
             <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
           </div>

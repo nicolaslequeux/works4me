@@ -1,0 +1,31 @@
+.profile-page {
+  font-family: "Celias";
+  width: 100%;
+  max-width: 600px;
+  // margin-top: 15vh;
+  margin: auto;
+  vertical-align: middle;
+  text-align: center;
+  background-color: white;
+  border-radius: 10px;
+  box-shadow: 1px 1px 2px rgba(0,0,0,0.1);
+}
+
+.profile-page p {
+  font-family: "Celias";
+}
+
+.profile-page img {
+  margin-top: 8vh;
+  height: 210px;
+  width: 210px;
+  border-radius: 50%;
+}
+
+.profile-container {
+  height: 100vh;
+  width: 100vw;
+  padding-top: 8vh;
+  padding-bottom: 15vh;
+
+}
