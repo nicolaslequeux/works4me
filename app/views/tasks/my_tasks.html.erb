@@ -53,7 +53,7 @@
 
     <% if task.status == "accepted" && !task.worker_user_id.nil? %>
       <!-- PRINT REVIEWS FOR WORKER_ID   -->
-      <p><%= task.worker.first_name %>'s rating: <%= task.worker.average_rating_received %>
+      <p><%= task.worker.first_name %>'s rating: <%= task.worker.average_rating_received_from_user_view %>
         (<%= task.worker.reviews.count %> reviews)
       </p>
         <% end %>
