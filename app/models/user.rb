@@ -31,12 +31,14 @@ class User < ApplicationRecord
 
   def average_rating_received_from_user_view
     sum = 0.0
-    counter = self.reviews.count
-    self.reviews.each do |review|
+    counter = 0
+    Task.where(worker: self).each do |task|
+      task.reviews.each do |review|
       sum += review.rating
+      counter += 1
+      end
     end
-    (sum / counter).round(2)
-  end
+    (sum / counter).round(1)  end
 
   def self.find_worker_by_task(review)
     User.find(Task.find(review.task_id).worker_user_id)

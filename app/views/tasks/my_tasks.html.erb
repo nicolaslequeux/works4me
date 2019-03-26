@@ -38,7 +38,7 @@
       <%= form_for [task], method: :patch do |f| %>
       <%= hidden_field_tag :redirect_to, my_tasks_path %>
       <%#= f.hidden_field :task_status, value: "confirmed" %>
-      <%= f.hidden_field :task_status, value: "in progress" %>
+      <%= f.hidden_field :task_status, value: "confirmed" %>
       <button type="submit" class="icone-green"><i class="fas fa-check-square"></i></button>
       <% end %>
     </li>
@@ -53,9 +53,9 @@
 
     <% if task.status == "accepted" && !task.worker_user_id.nil? %>
       <!-- PRINT REVIEWS FOR WORKER_ID   -->
-        <% Review.where(user_id: task.worker_user_id).each do |review| %>
-          <p>Rating of <%= review.rating %> for worker <%= User.find(review.user_id).first_name %> on <%= review.created_at.strftime("%d/%m/%Y") %></p>
-          <% end %>
+      <p><%= task.worker.first_name %>'s rating: <%= task.worker.average_rating_received_from_user_view %>
+        (<%= task.worker.reviews.count %> reviews)
+      </p>
         <% end %>
       <hr>
       <% end %>
@@ -66,7 +66,7 @@
 
   <ul class="list-inline">
 
-    <% Task.where(owner_user_id: @user, status: "in progress").each do |task| %>
+    <% Task.where(owner_user_id: @user, status: "confirmed").each do |task| %>
 
       <li class="list-inline-item"><%=task.name%> for <%=humanized_money_with_symbol(task.price)%> accepted by <strong><%= task.worker_user_id.nil? ? "not affected" : User.find(task.worker_user_id).first_name.capitalize %> <%= User.find(task.worker_user_id).last_name.capitalize %></strong>
       </li>
