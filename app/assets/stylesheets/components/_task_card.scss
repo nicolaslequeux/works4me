@@ -81,8 +81,19 @@
   padding-top: 8vh;
 }
 
+.waiting-container {
+  margin-top: 8vh;
+  padding-top: 8vh;
+  width: 80vw;
+  height:80vh;
+  background-color: white;
+  border-radius: 10px;
+}
 
 
+.waiting-page {
+  margin: 10%;
+}
 
 
 
@@ -90,8 +101,10 @@
 
 
 .payment-card {
+  font-family: "Celias";
+  color: white;
   width: 80%;
-  background: rgba(0,0,0,0.1);
+  background: rgba(22, 35, 58, 0.8);
   padding: 10px 20px;
   margin-top: 50px;
   border-radius: 10px;
