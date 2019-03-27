@@ -58,7 +58,7 @@ body {
           <p>Bio: <%= @task.owner.bio %></p>
         </div>
         <% if @task.owner.avatar.present? %>
-          <%= cl_image_tag @task.owner.avatar, {class: "card-showpage-user avatar-xl"} %>
+          <%= cl_image_tag @task.owner.avatar, :width=>300, :height=>300, :crop=>"fill", class: "card-showpage-user avatar-xl" %>
           <% else %>
 <!--           <img src='https://kitt.lewagon.com/placeholder/users/krokrob' class="card-showpage-user avatar-xl"/> -->
         <% end %>
