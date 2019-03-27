@@ -81,7 +81,7 @@ strong {
   </div>
 
   <div class="tasks-progress">
-    <h3>Tasks accepted in progress (<%=Task.where(owner_user_id: @user, status: "in progress").count%>)</h3>
+    <h3>Tasks accepted in progress (<%=Task.where(owner_user_id: @user, status: "confirmed").count%>)</h3>
 
 <!--     <ul class="list-inline">
 

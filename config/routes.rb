@@ -11,6 +11,7 @@ Rails.application.routes.draw do
 
 
   get '/my_tasks', to: 'tasks#my_tasks', as: 'my_tasks'
+  get '/my_jobs', to: 'tasks#my_jobs', as: 'my_jobs'
 
   # devise_for :users
 
