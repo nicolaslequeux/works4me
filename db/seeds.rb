@@ -2,8 +2,16 @@ require "faker"
 
 puts 'Cleaning database...'
   Review.destroy_all
+  Payment.destroy_all
   Task.destroy_all
   User.destroy_all
+
+
+name_task = ["Cleaning", "Moving furnitures", "Driving", "Digging a hole", "Ironing"]
+category_task = ["Cleaning", "moving", "driving", "ironing", "sewing", "computering"]
+status_task = ["pending", "accepted", "refused", "in progress", "resolved", "unresolved", "canceled", "finished"]
+address_task = ["Rome", "Milan", "Paris", "Madrid", "Berlin", "London", "Brussels"]
+
 
 puts 'Creating Users...'
 5.times do
@@ -25,19 +33,30 @@ puts 'Creating Test users John Rambo'
 test_user = User.new(
     first_name: "John",
     last_name: "Rambo",
-    address: "Milan",
+    address: "Via Tolomeo Trivulzio 14, Milan",
     email: "test@test.com",
+    phone_number: "",
     password: "123456",
     avatar: "",
-    bio: "I am a Ninja killer!"
+    bio: "I like hard job!"
     )
     test_user.remote_avatar_url = "https://aa1a5178aef33568e9c4-a77ea51e8d8892c1eb8348eb6b3663f6.ssl.cf5.rackcdn.com/p/full/446f5b44-1ba0-43ac-a8bf-ddd709cc8996.jpg"
   test_user.save
 
-name_task = ["Cleaning", "Moving furnitures", "Driving", "Digging a hole", "Ironing"]
-category_task = ["Cleaning", "moving", "driving", "ironing", "sewing", "computering"]
-status_task = ["pending", "accepted", "refused", "in progress", "resolved", "unresolved", "canceled", "finished"]
-address_task = ["Rome", "Milan", "Paris", "Madrid", "Berlin", "London", "Brussels"]
+
+puts 'Creating user Nicolas'
+test_user = User.new(
+    first_name: "Nicolas",
+    last_name: "Lequeux",
+    address: "52 Corso Magenta, Milan",
+    email: "contact@nicolaslequeux.com",
+    password: "123",
+    avatar: "",
+    bio: "Looking for electrical works"
+    )
+    test_user.remote_avatar_url = "https://res.cloudinary.com/dapwf6rtd/image/upload/v1553688302/works4me-seed/Nicolas_Lequeux.jpg"
+  test_user.save
+
 
 puts 'Creating Tasks... with worker'
 5.times do
