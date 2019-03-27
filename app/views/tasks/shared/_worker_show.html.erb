@@ -78,7 +78,9 @@ body {
       <div class="card-showpage-button-confirmed">
         <%= link_to "Home", root_path %>
       </div>
-      <div class="card-showpage-button-confirmed">
+
+      <% elsif @task.status == "finished"%>
+       <div class="card-showpage-button-confirmed">
         <%= link_to "Review the owner", new_task_review_path(@task) %>
       </div>
       <% end %>

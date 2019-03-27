@@ -82,12 +82,8 @@ class TasksController < ApplicationController
           # MAIler, UNCOMMENT LATER
           # TaskMailer.worker_accept_email(@task).deliver_now
         # end
-      end
       @task.save
-      if @task.status == "finished"
-        redirect_to new_task_review_path(@task)
-      else
-        redirect_or_fallback(task_path(@task, @payment))
+      redirect_or_fallback(task_path(@task, @payment))
       end
 
     else
