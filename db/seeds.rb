@@ -7,10 +7,11 @@ puts 'Cleaning database...'
   User.destroy_all
 
 
-name_task = ["Cleaning", "Moving furnitures", "Driving", "Digging a hole", "Ironing"]
-category_task = ["Cleaning", "moving", "driving", "ironing", "sewing", "computering"]
-status_task = ["pending", "accepted", "refused", "in progress", "resolved", "unresolved", "canceled", "finished"]
-address_task = ["Rome", "Milan", "Paris", "Madrid", "Berlin", "London", "Brussels"]
+address_task = ["Via Tolomeo, Milano",
+  "52 Corso Magenta, Milano",
+  "Via Polibio, Milano",
+  "Via Leone Tolstoi 51, Milano",
+  "Piazza del Duomo, Milano"]
 
 
 #### USERS #####################################
@@ -93,7 +94,7 @@ new_task = Task.new(
   category: "Cleaning",
   description: "Car to clean inside out",
   price: 50,
-  address: address_task.sample,
+  address: "Alzaia Naviglio Pavese, Moirago",
   picture: "",
   owner_user_id: User.all.sample.id,
   # worker_user_id: User.all.sample.id
@@ -107,7 +108,7 @@ new_task = Task.new(
   category: "Cleaning",
   description: "Clean the outside part only.",
   price: 37,
-  address: address_task.sample,
+  address: "Via Luigi Mancinelli, Milano",
   picture: "",
   owner_user_id: User.all.sample.id,
   # worker_user_id: User.all.sample.id
@@ -122,7 +123,7 @@ new_task = Task.new(
   category: "Gardening",
   description: "Small garden, estimate time 2h",
   price: 25,
-  address: address_task.sample,
+  address: "Viale Addetta, Tribiano",
   picture: "",
   owner_user_id: User.all.sample.id,
   # worker_user_id: User.all.sample.id
@@ -136,7 +137,7 @@ new_task = Task.new(
   category: "Moving",
   description: "Furnitures to be uploaded in a truck. Flat at the 2nd floor.",
   price: 45,
-  address: address_task.sample,
+  address: "Via Giuditta Pasta, Milano",
   picture: "",
   owner_user_id: User.all.sample.id,
   # worker_user_id: User.all.sample.id
@@ -208,7 +209,13 @@ puts "#{new_task} - #{new_task.name} has been created as a #{new_task.valid?} it
 
 
 
-
+#
+#name_task = ["Cleaning", "Moving furnitures", "Driving", "Digging a hole", "Ironing"]
+#category_task = ["Cleaning", "moving", "driving", "ironing", "sewing", "computering"]
+#status_task = ["pending", "accepted", "refused", "in progress", "resolved", "unresolved", "canceled", "finished"]
+#address_task = ["Rome", "Milan", "Paris", "Madrid", "Berlin", "London", "Brussels"]
+#
+#
 # puts 'Creating Users...'
 # 5.times do
 #   new_user = User.new(

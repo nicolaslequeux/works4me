@@ -96,7 +96,7 @@
                     <p>Posted: <%= task.created_at.strftime("%d/%m/%y") %></p>
                   </div>
                   <h2 class="card_task_pricing"><%= humanized_money_with_symbol(task.price) %></h2>
-                  <%= cl_image_tag task.owner.avatar, {class: "card_task_user avatar-bordered"} %>
+                  <%= cl_image_tag task.owner.avatar, :width=>300, :height=>300, :crop=>"fill", class: "card_task_user avatar-bordered" %>
                 </div>
               </div>
               <% end %>
