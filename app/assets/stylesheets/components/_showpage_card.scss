@@ -55,9 +55,11 @@
   // right: 40%;
   top: -50px;
   width: 100px;
+  height: 100px;
   flex-grow: 1;
   border: 2px solid white;
   box-shadow: 1px 1px 4px 1px rgba(0,0,0,0.3);
+  background-size: auto;
 }
 
 .card-showpage .card-showpage-infos {
