@@ -23,20 +23,20 @@ strong {
   <div class="my-task-content">
     <h3>Pending tasks waiting for a worker (<%=Task.where(owner_user_id: @user, status: "pending").count%>)</h3>
 
-    <ul class="list-inline">
-      <% Task.where(owner_user_id: @user, status: "pending").each do |task| %>
+<!--     <ul class="list-inline">
+      <%# Task.where(owner_user_id: @user, status: "pending").each do |task| %>
         <li class="list-inline-item">
-          <strong><%=task.name.capitalize%></strong> for <%= humanized_money_with_symbol(task.price) %> - Status: <%= task.status.capitalize %> for: <%= task.worker_user_id.nil? ? " Not affected" : User.find(task.worker_user_id).first_name.capitalize %>
+          <strong><%#=task.name.capitalize%></strong> for <%#= humanized_money_with_symbol(task.price) %> - Status: <%#= task.status.capitalize %> for: <%#= task.worker_user_id.nil? ? " Not affected" : User.find(task.worker_user_id).first_name.capitalize %>
         </li>
         <li class="list-inline-item">
-          <%= form_for [task], method: :patch do |f| %>
-          <%= hidden_field_tag :redirect_to, my_tasks_path %>
-          <%= f.hidden_field :task_status, value: "canceled" %>
+          <%#= form_for [task], method: :patch do |f| %>
+          <%#= hidden_field_tag :redirect_to, my_tasks_path %>
+          <%#= f.hidden_field :task_status, value: "canceled" %>
           <button type="submit" class="icone-yellow"><i class="fas fa-trash"></i></button>
-          <% end %>
+          <%# end %>
         </li>
-      <% end %>
-    </ul>
+      <%# end %>
+    </ul> -->
   </div>
 
   <div class="tasks-confirmed">
@@ -45,79 +45,79 @@ strong {
 
 
 
-  <ul class="list-inline">
-    <% Task.where(owner_user_id: @user, status: "accepted").each do |task| %>
+<!--   <ul class="list-inline">
+    <%# Task.where(owner_user_id: @user, status: "accepted").each do |task| %>
 
     <li class="list-inline-item">
-      <%=task.name%> for <%=humanized_money_with_symbol(task.price)%> accepted by <strong><%= task.worker_user_id.nil? ? "not affected" : User.find(task.worker_user_id).first_name.capitalize %> <%= User.find(task.worker_user_id).last_name.capitalize %></strong>
+      <%#=task.name%> for <%#=humanized_money_with_symbol(task.price)%> accepted by <strong><%#= task.worker_user_id.nil? ? "not affected" : User.find(task.worker_user_id).first_name.capitalize %> <%#= User.find(task.worker_user_id).last_name.capitalize %></strong>
     </li>
 
     <li class="list-inline-item">
-      <%= form_for [task], method: :patch do |f| %>
-      <%= hidden_field_tag :redirect_to, my_tasks_path %>
+      <%#= form_for [task], method: :patch do |f| %>
+      <%#= hidden_field_tag :redirect_to, my_tasks_path %>
       <%#= f.hidden_field :task_status, value: "confirmed" %>
-      <%= f.hidden_field :task_status, value: "confirmed" %>
+      <%#= f.hidden_field :task_status, value: "confirmed" %>
       <button type="submit" class="icone-green"><i class="fas fa-check-square"></i></button>
-      <% end %>
+      <%# end %>
     </li>
 
     <li class="list-inline-item">
-      <%= form_for [task], method: :patch do |f| %>
-      <%= hidden_field_tag :redirect_to, my_tasks_path %>
-      <%= f.hidden_field :task_status, value: "rejected" %>
+      <%#= form_for [task], method: :patch do |f| %>
+      <%#= hidden_field_tag :redirect_to, my_tasks_path %>
+      <%#= f.hidden_field :task_status, value: "rejected" %>
       <button type="submit" class="icone-red"><i class="fas fa-user-slash"></i></button>
-      <% end %>
+      <%# end %>
     </li>
 
-    <% if task.status == "accepted" && !task.worker_user_id.nil? %>
+    <%# if task.status == "accepted" && !task.worker_user_id.nil? %>
       <!-- PRINT REVIEWS FOR WORKER_ID   -->
-      <p><%= task.worker.first_name %>'s rating: <%= task.worker.average_rating_received_from_user_view %>
-        (<%= task.worker.reviews.count %> reviews)
-      </p>
-        <% end %>
-      <hr>
-      <% end %>
-  </ul>
+      <!-- < p><%#= task.worker.first_name %>'s rating: <%#= task.worker.average_rating_received_from_user_view %>
+        (<%#= task.worker.reviews.count %> reviews)
+      </p> -->
+        <%# end %>
+      <!-- <hr> -->
+      <%# end %>
+  <!-- </ul> -->
   </div>
 
   <div class="tasks-progress">
     <h3>Tasks accepted in progress (<%=Task.where(owner_user_id: @user, status: "in progress").count%>)</h3>
 
-    <ul class="list-inline">
+<!--     <ul class="list-inline">
 
-    <% Task.where(owner_user_id: @user, status: "confirmed").each do |task| %>
+    <%# Task.where(owner_user_id: @user, status: "confirmed").each do |task| %>
 
-        <li class="list-inline-item"><%=task.name%> for <%=humanized_money_with_symbol(task.price)%> accepted by <strong><%= task.worker_user_id.nil? ? "not affected" : User.find(task.worker_user_id).first_name.capitalize %> <%= User.find(task.worker_user_id).last_name.capitalize %></strong>
+        <li class="list-inline-item"><%#=task.name%> for <%#=humanized_money_with_symbol(task.price)%> accepted by <strong><%#= task.worker_user_id.nil? ? "not affected" : User.find(task.worker_user_id).first_name.capitalize %> <%#= User.find(task.worker_user_id).last_name.capitalize %></strong>
         </li>
 
         <li class="list-inline-item">
-          <%= form_for [task], method: :patch do |f| %>
-          <%= hidden_field_tag :redirect_to, my_tasks_path %>
-          <%= f.hidden_field :task_status, value: "finished" %>
+          <%#= form_for [task], method: :patch do |f| %>
+          <%#= hidden_field_tag :redirect_to, my_tasks_path %>
+          <%#= f.hidden_field :task_status, value: "finished" %>
           <button type="submit" class="icone-green"><i class="fas fa-check-square"></i></button>
-          <% end %>
+          <%# end %>
         </li>
 
-      <% end %>
-    </ul>
+      <%# end %>
+    </ul> -->
   </div>
 
 
   <div class="task-completed">
     <h3>Tasks finished (<%=Task.where(owner_user_id: @user, status: "finished").count%>)</h3>
 
-    <ul class="list-inline">
+<!--     <ul class="list-inline">
 
-      <% Task.where(owner_user_id: @user, status: "finished").each do |task| %>
+      <%# Task.where(owner_user_id: @user, status: "finished").each do |task| %>
 
-        <li class="list-inline-item"><%=task.name%>
-          for <%=humanized_money_with_symbol(task.price)%>
-          <%= task.status %>
-          accepted by <strong><%= task.worker_user_id.nil? ? "not affected" : User.find(task.worker_user_id).first_name.capitalize %> <%= User.find(task.worker_user_id).last_name.capitalize %></strong>
+        <li class="list-inline-item"><%#=task.name%>
+          for <%#=humanized_money_with_symbol(task.price)%>
+          <%#= task.status %>
+          accepted by <strong><%#= task.worker_user_id.nil? ? "not affected" : User.find(task.worker_user_id).first_name.capitalize %> <%#= User.find(task.worker_user_id).last_name.capitalize %></strong>
         </li>
 
-      <% end %>
-    </ul>
+      <%# end %>
+    </ul> -->
   </div>
 
 
