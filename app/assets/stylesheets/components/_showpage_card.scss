@@ -40,7 +40,7 @@
   padding: 60px;
   display: flex;
   justify-content: space-between;
-  align-items: flex-end;
+  align-items: flex-start;
   position: relative;
 
   div > * {
@@ -51,7 +51,8 @@
 
 .card-showpage-content .card-showpage-user {
   position: absolute;
-  right: 250px;
+  right: calc(50% - 50px);
+  // right: 40%;
   top: -50px;
   width: 100px;
   flex-grow: 1;
@@ -205,3 +206,11 @@
 .card-showpage.is-flipped {
   transform: rotateY(180deg);
 }
+
+
+@media (max-width: 600px) {
+  .scene {
+  width: 96vw;
+  }
+}
+
