@@ -17,12 +17,39 @@ font-family: "Celias";
       <div class="top-title"><h3>MY JOBS</h3></div>
       <div class="tasks-confirmed">
         <h3>Jobs accepted to be confirmed (<%=Task.where(worker_user_id: @user, status: "accepted").count%>)</h3>
+        <ul class="list-inline">
+          <% Task.where(worker_user_id: @user, status: "accepted").each do |task| %>
+          <%= link_to task_path(task) do %>
+          <li class="list-inline-item">
+            <strong><%=task.name.capitalize%></strong> for <%= humanized_money_with_symbol(task.price) %>
+          </li>
+          <% end %>
+          <% end %>
+        </ul>
       </div>
       <div class="tasks-progress">
         <h3>Jobs accepted in progress (<%=Task.where(worker_user_id: @user, status: "confirmed").count%>)</h3>
+        <ul class="list-inline">
+          <% Task.where(worker_user_id: @user, status: "confirmed").each do |task| %>
+          <%= link_to task_path(task) do %>
+          <li class="list-inline-item">
+            <strong><%=task.name.capitalize%></strong> for <%= humanized_money_with_symbol(task.price) %>
+          </li>
+          <% end %>
+          <% end %>
+        </ul>
       </div>
       <div class="task-completed">
         <h3>Jobs finished (<%=Task.where(worker_user_id: @user, status: "finished").count%>)</h3>
+        <ul class="list-inline">
+          <% Task.where(worker_user_id: @user, status: "finished").each do |task| %>
+          <%= link_to task_path(task) do %>
+          <li class="list-inline-item">
+            <strong><%=task.name.capitalize%></strong> for <%= humanized_money_with_symbol(task.price) %>
+          </li>
+          <% end %>
+          <% end %>
+        </ul>
       </div>
       <%= link_to "Back Home", (request.referer.present? ? request.referer : root_path), class: "btn btn-primary" %>
     </div>
