@@ -78,11 +78,10 @@ body {
       <div class="card-showpage-button-confirmed">
         <%= link_to "Home", root_path %>
       </div>
-      <% end %>
-
-      <div class="card-showpage-button-back">
-        <%= link_to "Back to index", tasks_path %>
+      <div class="card-showpage-button-confirmed">
+        <%= link_to "Review the owner", new_task_review_path(@task) %>
       </div>
+      <% end %>
     </div>
 
 
