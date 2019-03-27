@@ -1,16 +1,19 @@
-<div class="container">
-  <div class="row justify-content-center">
-    <div class="col-xs-12">
-      <!-- <div class="form-log"> -->
-        <% if @task.owner == current_user %>
-        <%=  render partial: "tasks/shared/owner_show" %>
-        <% elsif @task.owner != current_user %>
-        <%=  render partial: "tasks/shared/worker_show" %>
-        <% end %>
-      <!-- </div> -->
+
+<div class="background-svg-red">
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-xs-12">
+        <!-- <div class="form-log"> -->
+          <% if @task.owner == current_user %>
+          <%=  render partial: "tasks/shared/owner_show" %>
+          <% elsif @task.owner != current_user %>
+          <%=  render partial: "tasks/shared/worker_show" %>
+          <% end %>
+          <!-- </div> -->
+        </div>
+      </div>
     </div>
   </div>
-</div>
 
 
-<!--  col-sm-6 col-sm-offset-4 -->
+  <!--  col-sm-6 col-sm-offset-4 -->
