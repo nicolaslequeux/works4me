@@ -17,7 +17,7 @@ body {
 
 
 <% if @task.status != "confirmed" %>
-<script data-turbolinks-eval="false" language="javascript">
+  <script data-turbolinks-eval="false" language="javascript">
   regex = /\/tasks\/\d/i;
   setInterval(function(){
 
@@ -33,21 +33,15 @@ body {
 
 
   <div class="card-showpage">
+    <div class="card__face card__face--front">
 
-    <div class="card-showpage-img">
-      <% if @task.picture.present? %>
-      <%= cl_image_tag @task.picture, crop: :fill %>
-      <% else %>
-      <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/greece.jpg">
-      <% end %>
-      <!--
-              <div
-        id="map"
-        style="width: 100%;
-        height: 100%; display: block; border-radius: 15px; border-bottom-right-radius: 0px; border-bottom-left-radius: 0px; object-fit: cover"
-        data-markers="<%= @markers.to_json %>"
-        data-mapbox-api-key="<%#= ENV['MAPBOX_API_KEY'] %>"
-        ></div> -->
+
+      <div class="card-showpage-img">
+        <% if @task.picture.present? %>
+        <%= cl_image_tag @task.picture, crop: :fill %>
+        <% else %>
+        <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/greece.jpg">
+        <% end %>
       </div>
 
       <div class="card-showpage-content">
@@ -57,11 +51,7 @@ body {
           <h2><%= @task.owner.first_name %></h2>
           <p>Bio: <%= @task.owner.bio %></p>
         </div>
-        <% if @task.owner.avatar.present? %>
-          <%= cl_image_tag @task.owner.avatar, {class: "card-showpage-user avatar-xl"} %>
-          <% else %>
-<!--           <img src='https://kitt.lewagon.com/placeholder/users/krokrob' class="card-showpage-user avatar-xl"/> -->
-        <% end %>
+        <img src='https://kitt.lewagon.com/placeholder/users/krokrob' class="card-showpage-user avatar-xl"/>
       </div>
 
       <div class="card-showpage-infos">
@@ -91,34 +81,35 @@ body {
 
 
       <% elsif @task.status == "finished"%>
-      <div class="card-showpage-button-confirmed">
+       <div class="card-showpage-button-confirmed">
         <%= link_to "Review the owner", new_task_review_path(@task) %>
       </div>
       <% end %>
       <div class="card-showpage-button-back">
         <%= link_to "Back to index", tasks_path %>
       </div>
+    </div>
 
 
-
-<!--   <div
+<div class="card__face card__face--back">
+  <div
   id="map"
   style="width: 100%;
   height: 700px; display: block; border-radius: 15px; object-fit: cover"
   data-markers="<%= @markers.to_json %>"
-  data-mapbox-api-key="<%#= ENV['MAPBOX_API_KEY'] %>"
-  ></div> -->
-
-
-</div>
+  data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"
+  ></div>
 </div>
 
-<!-- <script>
+  </div>
+</div>
+
+<script>
   var card = document.querySelector('.card-showpage');
   card.addEventListener( 'click', function() {
     card.classList.toggle('is-flipped');
   });
-</script> -->
+</script>
 
 
 </div>

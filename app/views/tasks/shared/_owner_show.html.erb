@@ -33,10 +33,10 @@
 
             <!-- VIEW FOR PENDING & REJECTED-->
             <% if @task.status == "pending" %>
-              <h2>You are all set!</h1>
-              <h3><%= @task.name %></h3>
+              <h1><%= @task.owner.first_name.capitalize %> you are all set!</h1>
+              <h2>Message sent to the outer space for: <%= @task.name.capitalize %></h2>
               <%#= @payment.amount_cents %>
-              <h2>Waiting for someone to pick up your task...</h1>
+              <h2>Waiting for someone to pick up your task...</h2>
                 <div class="load-progress-bar">
                   <span class="load-bar">
                     <span class="load-progress"></span>
@@ -68,11 +68,23 @@
                 <h2>No more worries <%= @task.owner.first_name.capitalize %></h2>
                   <h2><%= @task.worker.first_name.capitalize %> is on his way to you</h2>
 
+            <%= form_for [@task], method: :patch do |f| %>
+              <%= f.hidden_field :task_status, value: "finished" %>
+              <%= f.submit "Mark tash as finished", class: "btn btn-success" %>
+            <% end %>
+            </div>
+
+            <% elsif @task.status == "finished" %>
+              <div class="waiting-page">
+                <h2>No more worries <%= @task.owner.first_name.capitalize %></h2>
+                  <h2><%= @task.worker.first_name.capitalize %> is on his way to you</h2>
+
               <div class="aside-btn">
                 <%= link_to "Back Home", root_path, class: "btn btn-success" %>
                 <%= link_to "Review worker", new_task_review_path(@task), class: "btn btn-success" %>
               <% end %>
               </div>
+
 
             </div>
 
