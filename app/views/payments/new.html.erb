@@ -10,42 +10,43 @@
 </style>
 
 
+<div class="background-svg">
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-xs-12 col-sm-6 col-sm-offset-4">
+        <div class="payment-container">
+          <div class="profile-page">
 
-<div class="container">
-  <div class="row justify-content-center">
-    <div class="col-xs-12 col-sm-6 col-sm-offset-4">
-      <div class="payment-container">
-        <div class="profile-page">
+            <h2>Purchase of:</h2>
+            <h3><%= @task.name %></h3>
+            <div class="profile-infos">
+              <h4>Category: </h4><p><%= @task.category %></p>
+              <h4>Description: </h4><p><%= @task.description %></p>
+              <h4>Address: </h4><p><%= @task.address %></p>
+              <%= form_tag task_payments_path(@task) do %>
+                <article>
+                  <label class="payment-card">
+                    <span>Amount Due: <%= humanized_money_with_symbol(@task.price) %></span>
+                  </label>
+                </article>
 
-          <h2>Purchase of:</h2>
-          <h3><%= @task.name %></h3>
-          <div class="profile-infos">
-            <h4>Category: </h4><p><%= @task.category %></p>
-            <h4>Description: </h4><p><%= @task.description %></p>
-            <h4>Address: </h4><p><%= @task.address %></p>
-            <%= form_tag task_payments_path(@task) do %>
-              <article>
-                <label class="payment-card">
-                  <span>Amount Due: <%= humanized_money_with_symbol(@task.price) %></span>
-                </label>
-              </article>
+                <!-- # Commented for the lecture, remove comments. -->
+                <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+                  data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
+                  data-name="<%= @task.name %>"
+                  data-email="<%= current_user.email %>"
+                  data-description="<%= @task.name %>"
+                  data-amount="<%= @task.price_cents %>"
+                  data-currency="<%= @task.price.currency %>"></script>
 
-              <!-- # Commented for the lecture, remove comments. -->
-              <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
-                data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
-                data-name="<%= @task.name %>"
-                data-email="<%= current_user.email %>"
-                data-description="<%= @task.name %>"
-                data-amount="<%= @task.price_cents %>"
-                data-currency="<%= @task.price.currency %>"></script>
-
-            <% end %>
-
-
+              <% end %>
 
 
 
 
+
+
+            </div>
           </div>
         </div>
       </div>

@@ -24,56 +24,57 @@
   </script>
 <% end %>
 
+<div class="background-svg">
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-xs-12"> <!-- col-sm-6 col-sm-offset-4 -->
+        <div class="waiting-container">
+          <div class="waiting-page">
 
-<div class="container">
-  <div class="row justify-content-center">
-    <div class="col-xs-12"> <!-- col-sm-6 col-sm-offset-4 -->
-      <div class="waiting-container">
-        <div class="waiting-page">
+            <!-- VIEW FOR PENDING & REJECTED-->
+            <% if @task.status == "pending" %>
+              <h2>You are all set!</h1>
+              <h3><%= @task.name %></h3>
+              <%#= @payment.amount_cents %>
+              <h2>Waiting for someone to pick up your task...</h1>
+                <div class="load-progress-bar">
+                  <span class="load-bar">
+                    <span class="load-progress"></span>
+                  </span>
+                </div>
 
-          <!-- VIEW FOR PENDING & REJECTED-->
-          <% if @task.status == "pending" %>
-            <h2>You are all set!</h1>
-            <h3><%= @task.name %></h3>
-            <%#= @payment.amount_cents %>
-            <h2>Waiting for someone to pick up your task...</h1>
-              <div class="load-progress-bar">
-                <span class="load-bar">
-                  <span class="load-progress"></span>
-                </span>
+
+            <!-- VIEW FOR ACCCEPTED -->
+            <% elsif @task.status == "accepted" %>
+            <div class="waiting-page">
+              <h2>Your task has been accepted by <%= @task.worker.first_name.capitalize %> <%= @task.worker.last_name.capitalize %>!</h2>
+
+              <div class="aside-btn">
+                <%= form_for [@task], method: :patch do |f| %>
+                  <%= f.hidden_field :task_status, value: "confirmed" %>
+                  <%= f.submit "Accept", class: "btn btn-success" %>
+                <% end %>
+
+                <%= form_for [@task], method: :patch do |f| %>
+                  <%= f.hidden_field :task_status, value: "rejected" %>
+                  <%= f.submit "Decline", class: "btn btn-danger" %>
+                <% end %>
               </div>
-
-
-          <!-- VIEW FOR ACCCEPTED -->
-          <% elsif @task.status == "accepted" %>
-          <div class="waiting-page">
-            <h2>Your task has been accepted by <%= @task.worker.first_name.capitalize %> <%= @task.worker.last_name.capitalize %>!</h2>
-
-            <div class="aside-btn">
-              <%= form_for [@task], method: :patch do |f| %>
-                <%= f.hidden_field :task_status, value: "confirmed" %>
-                <%= f.submit "Accept", class: "btn btn-success" %>
-              <% end %>
-
-              <%= form_for [@task], method: :patch do |f| %>
-                <%= f.hidden_field :task_status, value: "rejected" %>
-                <%= f.submit "Decline", class: "btn btn-danger" %>
-              <% end %>
             </div>
-          </div>
 
-            <!-- VIEW FOR CONFIRMED -->
-          <% elsif @task.status == "confirmed" %>
-          <div class="waiting-page">
-              <h2>No more worries <%= @task.owner.first_name.capitalize %></h2>
-                <h2><%= @task.worker.first_name.capitalize %> is on his way to you</h2>
+              <!-- VIEW FOR CONFIRMED -->
+            <% elsif @task.status == "confirmed" %>
+            <div class="waiting-page">
+                <h2>No more worries <%= @task.owner.first_name.capitalize %></h2>
+                  <h2><%= @task.worker.first_name.capitalize %> is on his way to you</h2>
 
-            <div class="aside-btn">
-              <%= link_to "Back Home", root_path, class: "btn btn-success" %>
-            <% end %>
+              <div class="aside-btn">
+                <%= link_to "Back Home", root_path, class: "btn btn-success" %>
+              <% end %>
+              </div>
             </div>
-          </div>
 
+          </div>
         </div>
       </div>
     </div>
