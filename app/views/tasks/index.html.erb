@@ -123,6 +123,7 @@ var cardgrid = document.getElementById("cardgrid");
 document.getElementById("button_map").addEventListener("click", (event) => {
 // showmap.style.display = "block";
 showmap.classList.toggle("map_display");
+console.log('hello');
 cardgrid.classList.toggle("cards_hide");
 window.mapbox.resize();
 fitMapToMarkers(window.mapbox, window.markers);
