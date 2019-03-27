@@ -43,7 +43,12 @@ class User < ApplicationRecord
     (sum / counter).round(1)  end
 
   def self.find_worker_by_task(review)
-    User.find(Task.find(review.task_id).worker_user_id)
+    task = Task.find(review.task_id)
+    if task.worker_user_id
+      User.find(task.worker_user_id)
+    else
+      nil
+    end
   end
 
   def send_welcome_email
