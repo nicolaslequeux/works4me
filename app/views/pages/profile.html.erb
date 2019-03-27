@@ -62,7 +62,9 @@ strong {
       <% @user.reviews.each do |review| %>
       <div class="row">
         <div class="col">
-          <%= User.find_worker_by_task(review).first_name.capitalize %>
+          <% if User.find_worker_by_task(review) %>
+            <%= User.find_worker_by_task(review).first_name.capitalize %>
+          <% end %>
         </div>
         <div class="col">
           on <%= review.created_at.strftime("%d/%m/%Y") %>
