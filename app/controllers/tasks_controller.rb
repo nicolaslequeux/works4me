@@ -52,6 +52,11 @@ class TasksController < ApplicationController
     @my_worker_tasks = Task.where(worker: current_user)
   end
 
+  def my_jobs
+    @my_owner_tasks = Task.where(owner: current_user)
+    @my_worker_tasks = Task.where(worker: current_user)
+  end
+
   private
 
   def task_params
