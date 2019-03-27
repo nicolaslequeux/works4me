@@ -88,6 +88,7 @@
   height:80vh;
   background-color: white;
   border-radius: 10px;
+  position: relative;
 }
 
 
@@ -97,10 +98,14 @@
 
 .waiting-page h1 {
   margin-bottom: 6%;
+  display: flex;
+  justify-content: space-around;
 }
 
 .waiting-page h2 {
   margin-bottom: 6%;
+  display: flex;
+  justify-content: space-around;
 }
 
 

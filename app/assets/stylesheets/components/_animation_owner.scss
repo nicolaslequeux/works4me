@@ -1,0 +1,46 @@
+.pulsate-fwd {
+  max-height: 100px;
+  max-width: 100px;
+  position: absolute;
+  right: 8%;
+  bottom: 20%;
+  width: 100%;
+  // display: inline-block;
+  // display: flex;
+  // justify-content: space-around;
+}
+
+
+.pulsate-fwd {
+  -webkit-animation: pulsate-fwd 0.8s ease-in-out infinite both;
+          animation: pulsate-fwd 0.8s ease-in-out infinite both;
+}
+
+@-webkit-keyframes pulsate-fwd {
+  0% {
+    -webkit-transform: scale(1);
+            transform: scale(1);
+  }
+  50% {
+    -webkit-transform: scale(1.1);
+            transform: scale(1.1);
+  }
+  100% {
+    -webkit-transform: scale(1);
+            transform: scale(1);
+  }
+}
+@keyframes pulsate-fwd {
+  0% {
+    -webkit-transform: scale(1);
+            transform: scale(1);
+  }
+  50% {
+    -webkit-transform: scale(1.1);
+            transform: scale(1.1);
+  }
+  100% {
+    -webkit-transform: scale(1);
+            transform: scale(1);
+  }
+}

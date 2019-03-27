@@ -76,8 +76,12 @@
 
             <% elsif @task.status == "finished" %>
               <div class="waiting-page">
-                <h2>No more worries <%= @task.owner.first_name.capitalize %></h2>
-                  <h2><%= @task.worker.first_name.capitalize %> is on his way to you</h2>
+                <h1>No more worries <%= @task.owner.first_name.capitalize %></h1>
+                  <h2><%= @task.worker.first_name.capitalize %> is on his way to you    ;)</h2>
+
+                    <!-- <div class="pulsate-fwd ">
+                      <%#= image_tag("favicon.svg", id: "logo")%>
+                    </div> -->
 
               <div class="aside-btn">
                 <%= link_to "Back Home", root_path, class: "btn btn-success" %>
