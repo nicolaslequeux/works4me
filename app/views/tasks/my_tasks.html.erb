@@ -23,7 +23,17 @@ strong {
   <div class="my-task-content">
     <h3>Pending tasks waiting for a worker (<%=Task.where(owner_user_id: @user, status: "pending").count%>)</h3>
 
-<!--     <ul class="list-inline">
+    <ul class="list-inline">
+      <% Task.where(owner_user_id: @user, status: "pending").each do |task| %>
+        <%= link_to task_path(task) do %>
+        <li class="list-inline-item">
+        <strong><%=task.name.capitalize%></strong> for <%= humanized_money_with_symbol(task.price) %>
+        </li>
+        <% end %>
+      <% end %>
+    </ul>
+
+<!-- <ul class="list-inline">
       <%# Task.where(owner_user_id: @user, status: "pending").each do |task| %>
         <li class="list-inline-item">
           <strong><%#=task.name.capitalize%></strong> for <%#= humanized_money_with_symbol(task.price) %> - Status: <%#= task.status.capitalize %> for: <%#= task.worker_user_id.nil? ? " Not affected" : User.find(task.worker_user_id).first_name.capitalize %>
@@ -42,6 +52,15 @@ strong {
   <div class="tasks-confirmed">
     <h3>Tasks accepted to be confirmed (<%=Task.where(owner_user_id: @user, status: "accepted").count%>)</h3>
 
+    <ul class="list-inline">
+      <% Task.where(owner_user_id: @user, status: "accepted").each do |task| %>
+        <%= link_to task_path(task) do %>
+        <li class="list-inline-item">
+        <strong><%=task.name.capitalize%></strong> for <%= humanized_money_with_symbol(task.price) %>
+        </li>
+        <% end %>
+      <% end %>
+    </ul>
 
 
 
@@ -83,6 +102,16 @@ strong {
   <div class="tasks-progress">
     <h3>Tasks accepted in progress (<%=Task.where(owner_user_id: @user, status: "confirmed").count%>)</h3>
 
+    <ul class="list-inline">
+      <% Task.where(owner_user_id: @user, status: "confirmed").each do |task| %>
+        <%= link_to task_path(task) do %>
+        <li class="list-inline-item">
+        <strong><%=task.name.capitalize%></strong> for <%= humanized_money_with_symbol(task.price) %>
+        </li>
+        <% end %>
+      <% end %>
+    </ul>
+
 <!--     <ul class="list-inline">
 
     <%# Task.where(owner_user_id: @user, status: "confirmed").each do |task| %>
@@ -105,6 +134,16 @@ strong {
 
   <div class="task-completed">
     <h3>Tasks finished (<%=Task.where(owner_user_id: @user, status: "finished").count%>)</h3>
+
+    <ul class="list-inline">
+      <% Task.where(owner_user_id: @user, status: "finished").each do |task| %>
+        <%= link_to task_path(task) do %>
+        <li class="list-inline-item">
+        <strong><%=task.name.capitalize%></strong> for <%= humanized_money_with_symbol(task.price) %>
+        </li>
+        <% end %>
+      <% end %>
+    </ul>
 
 <!--     <ul class="list-inline">
 

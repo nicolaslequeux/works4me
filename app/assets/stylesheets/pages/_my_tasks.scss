@@ -37,6 +37,7 @@
   padding-left: 10%;
   padding-right: 10%;
   padding-top: 3%;
+  font-size: 2em;
 }
 
 .list-inline {
@@ -72,37 +73,53 @@
 .tasks-confirmed {
   background: rgba(237, 91, 92, 1);
   color: white;
-  height: 12vh;
+  min-height: 12vh;
   h3 {
-    padding: 6%;
+    padding-top: 6%;
+    padding-bottom: 0;
+  }
+  ul.list-inline {
+    text-align: center
   }
 }
 
 .my-task-content {
   background: white;
   color: #182338;
-  height: 12vh;
+  min-height: 12vh;
   h3 {
-    padding: 6%;
+    padding-top: 6%;
+    padding-bottom: 0;
+  }
+  ul.list-inline {
+    text-align: center
   }
 }
 
 .tasks-progress {
   background-color: rgb(31, 173, 78);
   color: white;
-  height: 12vh;
+  min-height: 12vh;
   h3 {
-    padding: 6%;
+    padding-top: 6%;
+    padding-bottom: 0;
+  }
+  ul.list-inline {
+    text-align: center
   }
 }
 
 .task-completed {
   background-color: rgb(24, 35, 56);
   color: white;
-  height: 12vh;
+  min-height: 12vh;
   border-radius: 0 0 0 0;
   h3 {
-    padding: 6%;
+    padding-top: 6%;
+    padding-bottom: 0;
+  }
+  ul.list-inline {
+    text-align: center
   }
 }
 
