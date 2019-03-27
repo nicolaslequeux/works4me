@@ -69,16 +69,19 @@
 }
 
 
-.my-task-content {
-  margin-top: 8vh;
-  color: #182338;
-}
-
-
 .tasks-confirmed {
   background: rgba(237, 91, 92, 1);
   color: white;
-  height: 15vh;
+  height: 12vh;
+  h3 {
+    padding: 6%;
+  }
+}
+
+.my-task-content {
+  background: white;
+  color: #182338;
+  height: 12vh;
   h3 {
     padding: 6%;
   }
@@ -87,7 +90,7 @@
 .tasks-progress {
   background-color: rgb(31, 173, 78);
   color: white;
-  height: 15vh;
+  height: 12vh;
   h3 {
     padding: 6%;
   }
@@ -96,7 +99,7 @@
 .task-completed {
   background-color: rgb(24, 35, 56);
   color: white;
-  height: 15vh;
+  height: 12vh;
   border-radius: 0 0 0 0;
   h3 {
     padding: 6%;
