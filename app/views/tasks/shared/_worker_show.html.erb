@@ -57,8 +57,11 @@ body {
           <h2><%= @task.owner.first_name %></h2>
           <p>Bio: <%= @task.owner.bio %></p>
         </div>
-        <!-- <img src='https://kitt.lewagon.com/placeholder/users/krokrob' class="card-showpage-user avatar-xl"/> -->
-        <%= cl_image_tag @task.owner.avatar, {class: "card-showpage-user avatar-xl"} %>
+        <% if @task.owner.avatar.present? %>
+          <%= cl_image_tag @task.owner.avatar, {class: "card-showpage-user avatar-xl"} %>
+          <% else %>
+<!--           <img src='https://kitt.lewagon.com/placeholder/users/krokrob' class="card-showpage-user avatar-xl"/> -->
+        <% end %>
       </div>
 
       <div class="card-showpage-infos">
