@@ -27,7 +27,7 @@ ActiveRecord::Schema.define(version: 2019_03_25_115928) do
   end
 
   create_table "reviews", force: :cascade do |t|
-    t.integer "rating"
+    t.integer "rating", default: 4
     t.bigint "task_id"
     t.bigint "user_id"
     t.datetime "created_at", null: false

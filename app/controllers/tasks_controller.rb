@@ -83,8 +83,8 @@ class TasksController < ApplicationController
           # TaskMailer.worker_reject_email(@task).deliver_now
           @task.status = "pending"
           @task.rejections << @task.worker.id
-        elsif @status == "canceled"
-          @task.status = "canceled"
+        elsif @status == "cancelled"
+          @task.status = "cancelled"
         else
           @task.status = @status
           # if @task.status == "confirmed"

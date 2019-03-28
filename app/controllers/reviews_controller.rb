@@ -10,7 +10,13 @@ class ReviewsController < ApplicationController
     @review.user = current_user
     @review.task = @task
     if @review.save
-      redirect_to my_tasks_path
+      if @task.owner == current_user
+        redirect_to my_tasks_path
+      elsif @task.worker == current_user
+        redirect_to my_jobs_path
+      else
+        redirect_to root_path
+      end
     else
       flash[:alert] = "Oops! Something went wrong :("
       render :new

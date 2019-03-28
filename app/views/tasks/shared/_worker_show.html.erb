@@ -64,7 +64,7 @@ body {
         <% end %>
       </div>
 
-      <% if @task.rejections.include?(current_user.id) || @task.status == "pending" %>
+      <% if @task.rejections.include?(current_user.id) && @task.status == "pending" %>
       <div class="card-showpage-infos">
         <p><strong><%= @task.owner.first_name %> rejected your offer</strong></p>
         <p>Would you like to apply anyway?</p>
@@ -92,7 +92,7 @@ body {
 
       <% elsif @task.status == "confirmed"%>
       <div class="card-showpage-button-confirmed">
-        <%= link_to "Home", root_path %>
+        <%= link_to "Task in progress", root_path %>
       </div>
 
 
@@ -101,6 +101,10 @@ body {
           <div class="card-showpage-button-confirmed">
             <%= link_to "Review the owner", new_task_review_path(@task) %>
           </div>
+        <% else %>
+       <div class="card-showpage-button-confirmed">
+        <%= link_to "Home", root_path %>
+      </div>
         <% end %>
       <% end %>
       <div class="card-showpage-button-back">
