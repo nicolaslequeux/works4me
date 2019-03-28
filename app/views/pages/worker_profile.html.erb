@@ -18,11 +18,11 @@ strong {
   <div class="profile-page">
 
     <div class="top-title-profile">
-      <% rating = current_user.average_rating_received %>
+      <% rating = @task.worker.average_rating_received_from_user_view %>
       <% rating.nan? ? rating_per_cent = 0 : rating_per_cent = (100 * rating / 5).round(2) %>
 
       <% if current_user.avatar.present? %>
-        <%= cl_image_tag current_user.avatar, height: 150, width: 150, crop: :fill %>
+        <%= cl_image_tag @task.worker.avatar, height: 150, width: 150, crop: :fill %>
       <% else %>
         <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg", height="150", width="150", crop="fill">
       <% end %>
@@ -77,7 +77,7 @@ strong {
 
     <br>
     <!-- go back to the previous page if exists -->
-    <%= link_to "back", (request.referer.present? ? request.referer : root_path), class: "btn profile-button" %>
+    <%= link_to "back", task_path(task_id: @task.id), class: "btn profile-button" %>
     <br>
 
   </div>

@@ -52,6 +52,7 @@
             <% elsif @task.status == "accepted" %>
             <div class="waiting-page">
               <h2>Your task has been accepted by <%= @task.worker.first_name.capitalize %> <%= @task.worker.last_name.capitalize %>!</h2>
+              <p><%= link_to "View worker's profile", worker_profile_path(task_id: @task.id), class: "btn profile-button" %></p>
 
               <div class="aside-btn">
                 <%= form_for [@task], method: :patch do |f| %>

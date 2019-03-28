@@ -8,7 +8,7 @@ Rails.application.routes.draw do
   get '/contact', to: 'pages#contact', as: 'contact'
 
   get '/profile', to: 'pages#profile', as: 'profile'
-
+  get '/tasks/:id/worker_profile', to: 'pages#worker_profile', as: 'worker_profile'
 
   get '/my_tasks', to: 'tasks#my_tasks', as: 'my_tasks'
   get '/my_jobs', to: 'tasks#my_jobs', as: 'my_jobs'
