@@ -27,6 +27,15 @@ class TasksController < ApplicationController
         image_url: helpers.asset_url('https://picsum.photos/300/300/?random')
       }
     end
+    if @task.worker.present?
+      @distance = Geocoder::Calculations.distance_between([@task.owner.latitude, @task.owner.longitude], [@task.worker.latitude, @task.worker.longitude]).to_i
+      @eta = 0
+      if @distance <= 5
+        @eta = @distance * 6
+      else
+        @eta = @distance * 2
+      end
+    end
   end
 
   def new
