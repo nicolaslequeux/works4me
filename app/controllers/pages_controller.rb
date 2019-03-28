@@ -18,5 +18,9 @@ class PagesController < ApplicationController
     @user = current_user
   end
 
+  def worker_profile
+    @task = Task.find(params[:id])
+    @user = @task.worker
+  end
 end
 
