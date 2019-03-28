@@ -90,6 +90,16 @@
   border-radius: 10px;
   position: relative;
 }
+.waiting-container-stars {
+  margin: 8vh auto;
+  padding-top: 8vh;
+  width: 80vw;
+  height:80vh;
+  background-color: white;
+  border-radius: 10px;
+  position: relative;
+  // text-align: center;
+}
 
 
 .waiting-page {
@@ -107,6 +117,13 @@
   margin-bottom: 6%;
   display: flex;
   justify-content: space-around;
+}
+.waiting-container-stars .waiting-page-stars {
+// display: inline-block;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
 }
 
 
