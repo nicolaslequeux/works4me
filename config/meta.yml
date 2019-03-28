@@ -1,0 +1,7 @@
+# config/meta.yml
+
+meta_product_name: "Works4me"
+meta_title: "Works4me - Services Platform"
+meta_description: "Works4me, let's help workers and taskers to reach each other"
+meta_image: "right-screen.jpg" # should exist in `app/assets/images/`
+# twitter_account: "@product_twitter_account"   # required for Twitter Cards
