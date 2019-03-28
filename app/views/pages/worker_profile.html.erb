@@ -19,8 +19,7 @@ strong {
 
     <div class="top-title-profile">
       <% rating = @task.worker.average_rating_received_from_user_view %>
-      <% rating_per_cent = (100 * rating / 5).round(1) %>
-      <% rating.nan? ? rating_per_cent = 0 : rating_per_cent = 100 * rating / 5 %>
+      <% rating.nan? ? rating_per_cent = 0 : rating_per_cent = (100 * rating / 5).round(2) %>
 
       <% if current_user.avatar.present? %>
         <%= cl_image_tag @task.worker.avatar, height: 150, width: 150, crop: :fill %>
@@ -78,7 +77,7 @@ strong {
 
     <br>
     <!-- go back to the previous page if exists -->
-    <%= link_to "back", (request.referer.present? ? request.referer : root_path), class: "btn btn-primary" %>
+    <%= link_to "back", task_path(task_id: @task.id), class: "btn btn-primary" %>
     <br>
 
   </div>
