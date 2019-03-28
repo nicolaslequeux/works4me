@@ -37,10 +37,14 @@
               <h2>Message sent to the outer space for: <%= @task.name.capitalize %></h2>
               <%#= @payment.amount_cents %>
               <h2>Waiting for someone to pick up your task...</h2>
-                <div class="load-progress-bar">
+<!--                 <div class="load-progress-bar">
                   <span class="load-bar">
                     <span class="load-progress"></span>
                   </span>
+                </div> -->
+                <div class="progress" style="height: 20px">
+                  <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100" style="width: 100%">
+                  </div>
                 </div>
 
 
