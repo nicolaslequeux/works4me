@@ -109,9 +109,9 @@ class TasksController < ApplicationController
     end
 
     # UNCOMMENT WHEN MORE SEEDS! --> NOT ENOUGH TASKS FOR TESTING RADIUS
-    # if params[:radius].present? && params[:radius] != "All"
-    #   tasks = tasks.near([current_user.latitude, current_user.longitude], params[:radius].to_i)
-    # end
+    if params[:radius].present? && params[:radius] != "All"
+      tasks = tasks.near([current_user.latitude, current_user.longitude], params[:radius].to_i)
+    end
     return tasks
   end
 end
