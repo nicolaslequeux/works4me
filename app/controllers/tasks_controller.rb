@@ -69,22 +69,22 @@ class TasksController < ApplicationController
     if @task.owner == current_user
       @status = params[:task][:task_status]
 
-      if @status == "rejected"
-        # MAILER, UNCOMMENT LATER
-        # TaskMailer.worker_reject_email(@task).deliver_now
-        @task.status = "pending"
-        @task.rejections << @task.worker.id
-      elsif @status == "canceled"
-        @task.status = "canceled"
-      else
-        @task.status = @status
-        # if @task.status == "confirmed"
-          # MAIler, UNCOMMENT LATER
-          # TaskMailer.worker_accept_email(@task).deliver_now
-        # end
-      @task.save
-      redirect_or_fallback(task_path(@task, @payment))
-      end
+        if @status == "rejected"
+          # MAILER, UNCOMMENT LATER
+          # TaskMailer.worker_reject_email(@task).deliver_now
+          @task.status = "pending"
+          @task.rejections << @task.worker.id
+        elsif @status == "canceled"
+          @task.status = "canceled"
+        else
+          @task.status = @status
+          # if @task.status == "confirmed"
+            # MAIler, UNCOMMENT LATER
+            # TaskMailer.worker_accept_email(@task).deliver_now
+          # end
+        end
+        @task.save
+        redirect_or_fallback(task_path(@task, @payment))
 
     else
       @task.status = "accepted"
