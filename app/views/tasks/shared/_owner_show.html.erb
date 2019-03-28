@@ -72,6 +72,14 @@
                 <h2>No more worries <%= @task.owner.first_name.capitalize %></h2>
                   <h2><%= @task.worker.first_name.capitalize %> is on his way to you</h2>
 
+            <p><%= @task.worker.first_name %> is <%= @distance %> km away,
+              <% if @eta <= 60 %>
+                (ETA: <%= @eta %> minutes)
+              <% else %>
+                (ETA: <%= @eta / 60 %> hours <%= @eta % 60 %> minutes)
+              <% end %>
+            </p>
+
             <%= form_for [@task], method: :patch do |f| %>
               <%= f.hidden_field :task_status, value: "finished" %>
               <%= f.submit "Mark tash as finished", class: "btn btn-success" %>
