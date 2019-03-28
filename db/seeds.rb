@@ -18,7 +18,7 @@ puts 'Creating user : John Rambo'
 test_user = User.new(
     first_name: "John",
     last_name: "Rambo",
-    address: "Via Antonio Tolomeo Trivulzio, 14, Milano, Metropolitan City of Milan",
+    address: "30 Corso Magenta, Milan",
     email: "test@test.com",
     phone_number: "+39 320 345678",
     password: "‭123456",
