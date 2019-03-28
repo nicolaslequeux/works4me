@@ -91,7 +91,14 @@
   #button_map {
     display: block;
   }
+
 }
+
+@media (max-width: 1200px) {
+  .wrapper_index {
+    height: 100vh !important;
+  }
+  }
 
 // Small devices (landscape phones, 576px and up)
 @media (min-width: 576px) {
