@@ -1,18 +1,16 @@
 require "faker"
 
 puts 'Cleaning database...'
-  Review.destroy_all
-  Payment.destroy_all
-  Task.destroy_all
-  User.destroy_all
+Review.destroy_all
+Payment.destroy_all
+Task.destroy_all
+User.destroy_all
 
-
-address_task = ["Via Tolomeo, Milano",
+address_task = ["5 Via Tolomeo, Milano",
   "52 Corso Magenta, Milano",
-  "Via Polibio, Milano",
-  "Via Leone Tolstoi 51, Milano",
-  "Piazza del Duomo, Milano"]
-
+  "23 Via Polibio, Milano",
+  "51 Via Leone Tolstoi, Milano",
+  "12 Piazza del Duomo, Milano"]
 
 #### USERS #####################################
 
@@ -20,10 +18,11 @@ puts 'Creating user : John Rambo'
 test_user = User.new(
     first_name: "John",
     last_name: "Rambo",
-    address: "Via Tolomeo Trivulzio 14, Milan",
+    address: "30 Corso Magenta, Milan",
     email: "test@test.com",
     phone_number: "+39 320 345678",
-    password: "‭123456",
+    password: "123",
+    password_confirmation: "123",
     avatar: "",
     bio: "I like hard job!"
     )
@@ -36,8 +35,9 @@ test_user = User.new(
     last_name: "Lequeux",
     address: "52 Corso Magenta, Milan",
     email: "contact@nicolaslequeux.com",
-    phone_number: "‭+39 320 123456",
+    phone_number: "+39 320 123456",
     password: "123",
+    password_confirmation: "123",
     avatar: "",
     bio: "Looking for electrical works"
     )
@@ -48,10 +48,11 @@ puts 'Creating user : Honza'
 test_user = User.new(
     first_name: "Honza",
     last_name: "Ranostaj",
-    address: "Via Polibio, Milano",
+    address: "32 Via Polibio, Milano",
     email: "honzaranostaj@gmail.com",
-    phone_number: "‭+39 320 234567",
+    phone_number: "+39 320 234567",
     password: "123",
+    password_confirmation: "123",
     avatar: "",
     bio: "Good at fixing computers!"
     )
@@ -62,10 +63,11 @@ puts 'Creating user : Ivano'
 test_user = User.new(
     first_name: "Ivano",
     last_name: "Panizza",
-    address: "Via Leone Tolstoi 51, Milano",
+    address: "51 Via Leone Tolstoi, Milano",
     email: "ivano.panizza@libero.it",
-    phone_number: "‭+39 320 294567",
+    phone_number: "+39 320 294567",
     password: "123",
+    password_confirmation: "123",
     avatar: "",
     bio: ""
     )
@@ -94,7 +96,7 @@ new_task = Task.new(
   category: "Cleaning",
   description: "Car to clean inside out",
   price: 50,
-  address: "Alzaia Naviglio Pavese, Moirago",
+  address: "22 Alzaia Naviglio Pavese, Moirago",
   picture: "",
   owner_user_id: User.all.sample.id,
   # worker_user_id: User.all.sample.id
@@ -108,7 +110,7 @@ new_task = Task.new(
   category: "Cleaning",
   description: "Clean the outside part only.",
   price: 37,
-  address: "Via Luigi Mancinelli, Milano",
+  address: "21 Via Luigi Mancinelli, Milano",
   picture: "",
   owner_user_id: User.all.sample.id,
   # worker_user_id: User.all.sample.id
@@ -123,7 +125,7 @@ new_task = Task.new(
   category: "Gardening",
   description: "Small garden, estimate time 2h",
   price: 25,
-  address: "Viale Addetta, Tribiano",
+  address: "12 Viale Addetta, Tribiano",
   picture: "",
   owner_user_id: User.all.sample.id,
   # worker_user_id: User.all.sample.id
@@ -137,7 +139,7 @@ new_task = Task.new(
   category: "Moving",
   description: "Furnitures to be uploaded in a truck. Flat at the 2nd floor.",
   price: 45,
-  address: "Via Giuditta Pasta, Milano",
+  address: "2 Via Giuditta Pasta, Milano",
   picture: "",
   owner_user_id: User.all.sample.id,
   # worker_user_id: User.all.sample.id
@@ -178,34 +180,34 @@ puts "#{new_task} - #{new_task.name} has been created as a #{new_task.valid?} it
 
 #### TASKS WITH WORKER #####################################
 
-new_task = Task.new(
-  name: "Reparing a computer",
-  category: "Computering",
-  description: "My computer need to be fixed",
-  price: 65,
-  address: address_task.sample,
-  picture: "",
-  owner_user_id: User.all.sample.id,
-  worker_user_id: User.all.sample.id
-  )
-  new_task.remote_picture_url = "https://res.cloudinary.com/dapwf6rtd/image/upload/v1553697142/works4me-seed/repair_computer_2.jpg"
-new_task.save
-puts "#{new_task} - #{new_task.name} has been created as a #{new_task.valid?} item."
+# new_task = Task.new(
+#   name: "Reparing a computer",
+#   category: "Computering",
+#   description: "My computer need to be fixed",
+#   price: 65,
+#   address: address_task.sample,
+#   picture: "",
+#   owner_user_id: User.all.sample.id,
+#   worker_user_id: User.all.sample.id
+#   )
+#   new_task.remote_picture_url = "https://res.cloudinary.com/dapwf6rtd/image/upload/v1553697142/works4me-seed/repair_computer_2.jpg"
+# new_task.save
+# puts "#{new_task} - #{new_task.name} has been created as a #{new_task.valid?} item."
 
 
-new_task = Task.new(
-  name: "Clothes to iron",
-  category: "Ironingg",
-  description: "3h ironing, steam iron provided",
-  price: 35,
-  address: address_task.sample,
-  picture: "",
-  owner_user_id: User.all.sample.id,
-  worker_user_id: User.all.sample.id
-  )
-  new_task.remote_picture_url = "https://res.cloudinary.com/dapwf6rtd/image/upload/v1553697142/works4me-seed/iron_1.jpg"
-new_task.save
-puts "#{new_task} - #{new_task.name} has been created as a #{new_task.valid?} item."
+# new_task = Task.new(
+#   name: "Clothes to iron",
+#   category: "Ironingg",
+#   description: "3h ironing, steam iron provided",
+#   price: 35,
+#   address: address_task.sample,
+#   picture: "",
+#   owner_user_id: User.all.sample.id,
+#   worker_user_id: User.all.sample.id
+#   )
+#   new_task.remote_picture_url = "https://res.cloudinary.com/dapwf6rtd/image/upload/v1553697142/works4me-seed/iron_1.jpg"
+# new_task.save
+# puts "#{new_task} - #{new_task.name} has been created as a #{new_task.valid?} item."
 
 
 

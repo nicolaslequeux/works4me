@@ -75,15 +75,15 @@
 
             <p><%= @task.worker.first_name %> is <%= @distance %> km away,
               <% if @eta <= 60 %>
-                (ETA: <%= @eta %> minutes)
+                (Estimated time of arrival: <%= @eta %> minutes)
               <% else %>
-                (ETA: <%= @eta / 60 %> hours <%= @eta % 60 %> minutes)
+                (Estimated time of arrival: <%= @eta / 60 %> hours <%= @eta % 60 %> minutes)
               <% end %>
             </p>
 
             <%= form_for [@task], method: :patch do |f| %>
               <%= f.hidden_field :task_status, value: "finished" %>
-              <%= f.submit "Mark tash as finished", class: "btn btn-success" %>
+              <%= f.submit "Mark task as finished", class: "btn btn-success" %>
             <% end %>
             </div>
 
@@ -98,7 +98,9 @@
 
               <div class="aside-btn">
                 <%= link_to "Back Home", root_path, class: "btn btn-success" %>
-                <%= link_to "Review worker", new_task_review_path(@task), class: "btn btn-success" %>
+                <% unless @task.reviews.where(user: current_user).present? %>
+                  <%= link_to "Review worker", new_task_review_path(@task), class: "btn btn-success" %>
+                <% end %>
               <% end %>
               </div>
 

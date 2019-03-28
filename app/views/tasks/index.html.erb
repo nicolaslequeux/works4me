@@ -85,7 +85,7 @@
 
 
           <%# @tasks.reverse.each do |task| %>
-              <% @tasks.where.not(status: ["canceled", "finished"]).reverse.each do |task| %>
+              <% @tasks.where.not(status: ["cancelled", "finished"]).reverse.each do |task| %>
               <div class="card_task">
                 <% if task.picture.present? %>
                 <%= cl_image_tag task.picture, crop: :fill %>

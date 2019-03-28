@@ -11,6 +11,10 @@
 strong {
   font-family: "Celias";
 }
+
+.list-inline-item strong {
+  color: #000000;
+}
 </style>
 
 <div class="profile-container">
@@ -41,7 +45,7 @@ strong {
         <li class="list-inline-item">
           <%#= form_for [task], method: :patch do |f| %>
           <%#= hidden_field_tag :redirect_to, my_tasks_path %>
-          <%#= f.hidden_field :task_status, value: "canceled" %>
+          <%#= f.hidden_field :task_status, value: "cancelled" %>
           <button type="submit" class="icone-yellow"><i class="fas fa-trash"></i></button>
           <%# end %>
         </li>
