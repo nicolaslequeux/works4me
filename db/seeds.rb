@@ -21,7 +21,8 @@ test_user = User.new(
     address: "30 Corso Magenta, Milan",
     email: "test@test.com",
     phone_number: "+39 320 345678",
-    password: "‭123456",
+    password: "123",
+    password_confirmation: "123",
     avatar: "",
     bio: "I like hard job!"
     )
@@ -34,8 +35,9 @@ test_user = User.new(
     last_name: "Lequeux",
     address: "52 Corso Magenta, Milan",
     email: "contact@nicolaslequeux.com",
-    phone_number: "‭+39 320 123456",
+    phone_number: "+39 320 123456",
     password: "123",
+    password_confirmation: "123",
     avatar: "",
     bio: "Looking for electrical works"
     )
@@ -48,8 +50,9 @@ test_user = User.new(
     last_name: "Ranostaj",
     address: "32 Via Polibio, Milano",
     email: "honzaranostaj@gmail.com",
-    phone_number: "‭+39 320 234567",
+    phone_number: "+39 320 234567",
     password: "123",
+    password_confirmation: "123",
     avatar: "",
     bio: "Good at fixing computers!"
     )
@@ -62,8 +65,9 @@ test_user = User.new(
     last_name: "Panizza",
     address: "51 Via Leone Tolstoi, Milano",
     email: "ivano.panizza@libero.it",
-    phone_number: "‭+39 320 294567",
+    phone_number: "+39 320 294567",
     password: "123",
+    password_confirmation: "123",
     avatar: "",
     bio: ""
     )
